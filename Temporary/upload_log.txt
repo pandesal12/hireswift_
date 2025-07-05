@@ -1,0 +1,6 @@
+2025-06-09 21:58:13 - File: sample_68473cd597a8d.pdf, Processing time: 0.06s
+2025-06-09 22:01:48 - File: sample_68473dabe3999.pdf, Processing time: 0.67s
+2025-06-09 22:05:17 - File: sample_68473e7d19d9c.pdf, Processing time: 0.29s
+2025-06-09 22:06:17 - File: sample_68473eb5c201a.pdf, Processing time: 4.12s
+2025-06-09 22:08:25 - File: sample_68473f34e27c2.pdf, Processing time: 4.29s
+2025-06-09 22:12:36 - File: sample_6847402252040.pdf, Processing time: 18.35s

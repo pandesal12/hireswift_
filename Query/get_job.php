@@ -1,0 +1,45 @@
+<?php
+require_once 'connect.php';
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['email'])) {
+    http_response_code(401);
+    echo json_encode(['error' => 'Unauthorized']);
+    exit();
+}
+
+if (!isset($_GET['id'])) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Job ID is required']);
+    exit();
+}
+
+try {
+    $job_id = (int)$_GET['id'];
+    $email = $_SESSION['email'];
+    $sql = "SELECT * FROM jobs WHERE id = $job_id AND created_by = '$email'";
+    $result = mysqli_query($con, $sql);
+    
+    if (!$result || mysqli_num_rows($result) == 0) {
+        error_log("No job found for job_id: $job_id and email: $email");
+
+        http_response_code(404);
+        echo json_encode(['error' => 'Job not found']);
+        exit();
+    }
+    
+    $job = mysqli_fetch_assoc($result);
+    
+    // Decode JSON fields
+    $job['skills'] = json_decode($job['skills'], true) ?: [];
+    $job['education'] = json_decode($job['education'], true) ?: [];
+    
+    header('Content-Type: application/json');
+    echo json_encode($job);
+    
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode(['error' => $e->getMessage()]);
+}
+?>
