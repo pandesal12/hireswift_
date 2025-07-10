@@ -364,35 +364,61 @@
         uploadForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const formData = new FormData();
-            formData.append('pdf_file', fileInput.files[0]);
+            const jobId = <?php
+                $jobId = $_GET['jobId'] ?? '';
+                echo json_encode($jobId); ?>;
 
-            // Show loading
-            loading.classList.add('show');
-            results.classList.remove('show');
-            submitBtn.disabled = true;
+            if (!jobId){
+                alert("Upload link invalid.")
+            }
+            else {
+                function decryptNumber(base64) {
+                    const secret = 123;
+                    const binaryStr = atob(base64);
 
-            // Submit form
-            fetch('process_upload.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                loading.classList.remove('show');
-                submitBtn.disabled = false;
+                    let result = '';
+                    for (let i = 0; i < binaryStr.length; i++) {
+                        const xorByte = binaryStr.charCodeAt(i) ^ secret;
+                        result += String.fromCharCode(xorByte);
+                    }
 
-                if (data.success) {
-                    displayResults(data);
-                } else {
-                    displayError(data.message || 'An error occurred during processing.');
+                    return parseFloat(result); // Returns original number
                 }
-            })
-            .catch(error => {
-                loading.classList.remove('show');
-                submitBtn.disabled = false;
-                displayError('Network error: ' + error.message);
-            });
+
+                jobId_real = decryptNumber(jobId)
+
+                alert("Upload link valid. Job ID: "+jobId_real); //For debug
+
+                const formData = new FormData();
+                formData.append('pdf_file', fileInput.files[0]);
+
+                // Show loading
+                loading.classList.add('show');
+                results.classList.remove('show');
+                submitBtn.disabled = true;
+
+                // Submit form
+                fetch('process_upload.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    loading.classList.remove('show');
+                    submitBtn.disabled = false;
+
+                    if (data.success) {
+                        displayResults(data);
+                    } else {
+                        displayError(data.message || 'An error occurred during processing.');
+                    }
+                })
+                .catch(error => {
+                    loading.classList.remove('show');
+                    submitBtn.disabled = false;
+                    displayError('Network error: ' + error.message);
+                });
+            }
         });
 
         function formatFileSize(bytes) {

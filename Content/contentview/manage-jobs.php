@@ -86,6 +86,9 @@ $error_message = isset($_GET['error']) ? $_GET['error'] : '';
                         <button class="btn btn-danger btn-sm" onclick="deleteJob(<?php echo $job['id']; ?>)">
                             <i class="fas fa-trash"></i>
                         </button>
+                        <button class="btn btn-link btn-sm" onclick="shareJob(<?php echo $job['id']; ?>)">
+                            <i class="fas fa-link"></i>
+                        </button>
                     </div>
                 </td>
             </tr>
