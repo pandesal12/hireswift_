@@ -293,7 +293,8 @@ if (isset($parts[1]) && $parts[1] !== '') {
         </div>
         <?php endif; ?>
 
-        <form method="POST" action="change_password.php" id="passwordForm">
+        <form method="POST" action="../Query/change_password.php" id="passwordForm">
+            <input type="hidden" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
             <div class="form-group">
                 <label class="form-label" for="currentPassword">Current Password</label>
                 <input type="password" class="form-control" id="currentPassword" name="current_password" required>
@@ -322,7 +323,7 @@ if (isset($parts[1]) && $parts[1] !== '') {
             </div>
 
             <div style="margin-top: 20px;">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" name="changePassword" class="btn btn-primary">
                     <i class="fas fa-key"></i>
                     Change Password
                 </button>
