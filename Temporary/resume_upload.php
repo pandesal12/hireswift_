@@ -387,7 +387,7 @@
 
                 jobId_real = decryptNumber(jobId)
 
-                alert("Upload link valid. Job ID: "+jobId_real); //For debug
+                // alert("Upload link valid. Job ID: "+jobId_real); //For debug
 
                 const formData = new FormData();
                 formData.append('pdf_file', fileInput.files[0]);

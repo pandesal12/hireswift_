@@ -136,7 +136,7 @@ function shareJob(jobId){
     encrypted = encodeURIComponent(encryptNumber(number));
     
     //TODO: change later to non-localhost url
-    navigator.clipboard.writeText("http://localhost/hireswift_/Temporary/upload_test.php?jobId="+encrypted)
+    navigator.clipboard.writeText("http://localhost/hireswift_/Temporary/resume_upload.php?jobId="+encrypted)
     alert("Link to resume upload page for job copied to clipboard.")
 }
 

@@ -88,7 +88,7 @@
     <div class="container">
         <div class="header">
             <h1><i class="fas fa-folder"></i> Uploaded Files</h1>
-            <a href="upload_test.html" class="btn">
+            <a href="resume_upload.html" class="btn">
                 <i class="fas fa-upload"></i> Upload New File
             </a>
         </div>
