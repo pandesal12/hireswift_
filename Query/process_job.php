@@ -61,10 +61,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             
         } else {
-            // Create new job
+            // Check for duplicate job
+            $check_sql = "SELECT id FROM jobs 
+                        WHERE title = '$title' 
+                        AND employment_type = '$employment_type' 
+                        AND created_by = '$created_by' 
+                        LIMIT 1";
+
+            $check_result = mysqli_query($con, $check_sql);
+
+            if (mysqli_num_rows($check_result) > 0) {
+                throw new Exception('Duplicate job detected. A job with the same title and employment type already exists.');
+            }
+
+            // Insert new job
             $sql = "INSERT INTO jobs (title, employment_type, skills, education, description, created_by) 
                     VALUES ('$title', '$employment_type', '$skills_json', '$education_json', '$description', '$created_by')";
-            
+
             if (mysqli_query($con, $sql)) {
                 $response['success'] = true;
                 $response['message'] = 'Job created successfully';
