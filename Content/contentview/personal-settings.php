@@ -1,12 +1,18 @@
 <?php
 // Get user data from session or database
+
+if (!isset($_SESSION['name'])) {
+        header('location: ../index.php');
+    }
+
+    // $name = $_SESSION['name'];
+
 $user = [
-    'name' => $_SESSION['name'] ?? 'John Doe',
-    'email' => $_SESSION['email'] ?? 'john.doe@example.com',
-    'phone' => $_SESSION['phone'] ?? '+1 (555) 123-4567',
-    'company' => $_SESSION['company'] ?? 'HireSwift Inc.',
-    'position' => $_SESSION['position'] ?? 'HR Manager',
-    'joined' => $_SESSION['joined'] ?? '2023-01-15'
+    'name' => $_SESSION['name'],
+    'email' => $_SESSION['email'],
+    'phone' => $_SESSION['phone'],
+    'company' => $_SESSION['company'] ?? "placeholder company",
+    'id' => $_SESSION['id'],
 ];
 
 $initials = '';
@@ -209,8 +215,7 @@ if (isset($parts[1]) && $parts[1] !== '') {
             <div class="profile-info">
                 <h2><?php echo htmlspecialchars($user['name']); ?></h2>
                 <div class="profile-meta">
-                    <div><?php echo htmlspecialchars($user['position']); ?> at <?php echo htmlspecialchars($user['company']); ?></div>
-                    <div>Member since <?php echo date('F Y', strtotime($user['joined'])); ?></div>
+                    <div>HireSwift User</div>
                 </div>
             </div>
         </div>
@@ -223,53 +228,46 @@ if (isset($parts[1]) && $parts[1] !== '') {
             Profile updated successfully!
         </div>
         <?php endif; ?>
-
-        <form method="POST" action="update_profile.php">
-            <div class="form-row">
-                <div class="form-group">
-                    <label class="form-label" for="firstName">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="first_name" 
-                           value="<?php echo htmlspecialchars(explode(' ', $user['name'])[0]); ?>" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lastName">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="last_name" 
-                           value="<?php echo htmlspecialchars(explode(' ', $user['name'])[1] ?? ''); ?>" required>
-                </div>
-            </div>
+        
+        <form method="POST" action="../Query/update_profile.php" id="profileForm">
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($user['id']); ?>">
 
             <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="fullName">Full Name</label>
+                    <input type="text" class="form-control" id="firstName" name="full_name" 
+                           value="<?php echo htmlspecialchars($user['name']); ?>" required>
+                </div>
+
                 <div class="form-group">
                     <label class="form-label" for="email">Email Address</label>
                     <input type="email" class="form-control" id="email" name="email" 
                            value="<?php echo htmlspecialchars($user['email']); ?>" required>
                 </div>
-                <div class="form-group">
-                    <label class="form-label" for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" 
-                           value="<?php echo htmlspecialchars($user['phone']); ?>">
-                </div>
             </div>
 
             <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" 
+                           value="<?php echo htmlspecialchars($user['phone']); ?>" pattern="[0-9]{10}">
+                </div>
+
                 <div class="form-group">
                     <label class="form-label" for="company">Company</label>
                     <input type="text" class="form-control" id="company" name="company" 
                            value="<?php echo htmlspecialchars($user['company']); ?>">
                 </div>
-                <div class="form-group">
-                    <label class="form-label" for="position">Position</label>
-                    <input type="text" class="form-control" id="position" name="position" 
-                           value="<?php echo htmlspecialchars($user['position']); ?>">
-                </div>
             </div>
 
+            
+
             <div style="display: flex; gap: 12px;">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" name="updateProfile">
                     <i class="fas fa-save"></i>
                     Update Profile
                 </button>
-                <button type="reset" class="btn btn-secondary">
+                <button type="reset" class="btn btn-secondary" id="resetBtn">
                     <i class="fas fa-undo"></i>
                     Reset
                 </button>
@@ -293,7 +291,8 @@ if (isset($parts[1]) && $parts[1] !== '') {
         </div>
         <?php endif; ?>
 
-        <form method="POST" action="change_password.php" id="passwordForm">
+        <form method="POST" action="../Query/change_password.php" id="passwordForm">
+            <input type="hidden" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
             <div class="form-group">
                 <label class="form-label" for="currentPassword">Current Password</label>
                 <input type="password" class="form-control" id="currentPassword" name="current_password" required>
@@ -322,7 +321,7 @@ if (isset($parts[1]) && $parts[1] !== '') {
             </div>
 
             <div style="margin-top: 20px;">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" name="changePassword" class="btn btn-primary">
                     <i class="fas fa-key"></i>
                     Change Password
                 </button>
@@ -350,4 +349,18 @@ document.getElementById('passwordForm').addEventListener('submit', function(e) {
         return;
     }
 });
+
+const fullName = document.getElementById('fullName');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+const company = document.getElementById('company');
+const resetBtn = document.getElementById('resetBtn')
+
+resetbtn.addEventListener('click', function(e){
+    fullName.value = <?php echo htmlspecialchars($user['name']); ?>
+    email.value = <?php echo htmlspecialchars($user['email']); ?>
+    phone.value = <?php echo htmlspecialchars($user['phone']); ?>
+    company.value = <?php echo htmlspecialchars($user['company']); ?>
+})
+
 </script>

@@ -38,6 +38,9 @@ if(isset($_POST['signIn'])) {
 		$row=$result->fetch_assoc();
 		$_SESSION['email']=$row['email'];
 		$_SESSION['name']=$row['name'];
+		$_SESSION['phone']=$row['phone'];
+		$_SESSION['id']=$row['id'];
+		// $_SESSION['company']=$row['company'];
 		header("Location: ../Content/master.php");
 		exit();
 

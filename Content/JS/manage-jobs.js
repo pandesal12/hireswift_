@@ -116,6 +116,30 @@ function deleteJob(jobId) {
     }
 }
 
+function shareJob(jobId){
+    function encryptNumber(num) {
+        const numStr = num.toString();
+        const secret = 123; // XOR key (must be <= 255)
+
+        const byteArr = [];
+        for (let i = 0; i < numStr.length; i++) {
+            const xorByte = numStr.charCodeAt(i) ^ secret;
+            byteArr.push(xorByte);
+        }
+
+        // Convert byte array to binary string
+        const binaryStr = String.fromCharCode(...byteArr);
+        return btoa(binaryStr); // Base64 encode
+    }
+    number = jobId;
+
+    encrypted = encodeURIComponent(encryptNumber(number));
+    
+    //TODO: change later to non-localhost url
+    navigator.clipboard.writeText("http://localhost/hireswift_/Temporary/resume_upload.php?jobId="+encrypted)
+    alert("Link to resume upload page for job copied to clipboard.")
+}
+
 function loadJobData(jobId) {
     fetch(`../Query/get_job.php?id=${jobId}`)
         .then(response => response.json())

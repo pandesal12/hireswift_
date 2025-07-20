@@ -19,7 +19,7 @@
                 <i class="fa-solid fa-envelope"></i>
             </div>
             <div class="input-section">
-                <input type="password" id="password" placeholder="Password" name="password" required>
+                <input type="password" id="password" placeholder="Password" name="password" required pattern="\S+">
                 <i class="fa-solid fa-lock"></i>
             </div>
             <div class="signup">
@@ -31,7 +31,7 @@
         <form autocomplete="off" action="Query/login.php" method="post" id="register-form" style="display: none">
             <h1>Register</h1>
             <div class="input-section">
-                <input type="text" id="fullname" placeholder="Full Name" name="fullname" required>
+                <input type="text" id="fullname" placeholder="Full Name" name="fullname" required pattern="\S+">
                 <i class="fa-solid fa-user"></i>
             </div>
             <div class="input-section">
@@ -43,7 +43,7 @@
                 <i class="fa-solid fa-phone"></i>
             </div>
             <div class="input-section">
-                <input type="password" id="reg-password" placeholder="Password" name="password" required>
+                <input type="password" id="reg-password" placeholder="Password" name="password" required pattern="\S+">
                 <i class="fa-solid fa-lock"></i>
             </div>
             <div class="signup">
