@@ -286,7 +286,7 @@ if (!isset($_SESSION['id'])) {
             </div>
 
             <div class="nav-section">
-                <div class="nav-section-title">Miscellaneous</div>
+                <div class="nav-section-title">Submissions</div>
                 
                 <a href="?content=applicants" class="nav-item <?php echo $page == 'applicants' ? 'active' : ''?>"> 
                     <i class="fa-solid fa-user sidelogo"></i>

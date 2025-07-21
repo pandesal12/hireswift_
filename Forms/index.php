@@ -33,7 +33,6 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="../Index/Assets/HIRESWIFT.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply to <?php echo htmlspecialchars($companyName); ?> - HireSwift</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
@@ -394,6 +393,171 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
             color: #495057;
         }
 
+        /* Privacy Checkbox Styles */
+        .privacy-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .privacy-checkbox input[type="checkbox"] {
+            margin-top: 2px;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .privacy-checkbox label {
+            font-size: 14px;
+            color: #495057;
+            cursor: pointer;
+            line-height: 1.4;
+        }
+
+        .privacy-checkbox .terms-link {
+            color: #4285f4;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .privacy-checkbox .terms-link:hover {
+            color: #3367d6;
+        }
+
+        .privacy-checkbox.error {
+            border-color: #dc3545;
+            background: #fff5f5;
+        }
+
+        .privacy-error {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .privacy-error.show {
+            display: block;
+        }
+
+        /* Terms Modal Styles */
+        .terms-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        .terms-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .terms-modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .terms-modal-header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f8f9fa;
+        }
+
+        .terms-modal-icon {
+            width: 60px;
+            height: 60px;
+            background: #4285f4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .terms-modal h2 {
+            color: #212529;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .terms-content {
+            color: #495057;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .terms-content h3 {
+            color: #212529;
+            margin: 20px 0 12px 0;
+            font-size: 16px;
+        }
+
+        .terms-content p {
+            margin-bottom: 16px;
+        }
+
+        .terms-content ul {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .terms-content li {
+            margin-bottom: 8px;
+        }
+
+        .terms-close-btn {
+            width: 100%;
+            padding: 12px;
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 24px;
+        }
+
+        .terms-close-btn:hover {
+            background: #3367d6;
+        }
+
         @media (max-width: 768px) {
             .application-container {
                 margin: 10px;
@@ -526,6 +690,17 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
                     </div>
                 </div>
 
+                <!-- Data Privacy Checkbox -->
+                <div class="privacy-checkbox" id="privacyCheckbox">
+                    <input type="checkbox" id="privacyTermsCheckbox" name="privacy_accepted" required>
+                    <label for="privacyTermsCheckbox">
+                        I have read and agree to the <span class="terms-link" onclick="openPrivacyModal()">Data Privacy Notice</span>
+                    </label>
+                </div>
+                <div class="privacy-error" id="privacyError">
+                    Please accept the Data Privacy Notice to continue.
+                </div>
+
                 <button type="submit" class="btn" id="submitBtn">
                     <span class="loading" id="submitLoading"></span>
                     <i class="fas fa-paper-plane"></i>
@@ -537,7 +712,69 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
         </div>
     </div>
 
+    <!-- Data Privacy Modal -->
+    <div id="privacyModal" class="terms-modal">
+        <div class="terms-modal-content">
+            <div class="terms-modal-header">
+                <div class="terms-modal-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h2>Data Privacy Notice</h2>
+            </div>
+
+            <div class="terms-content">
+                <p>By submitting your application and uploading your resume through this form, you acknowledge and agree that the form owner may collect, process, and store your personal data, including your name, email address, and resume, for recruitment purposes.</p>
+                
+                <p>The form owner is responsible for ensuring that your information is kept confidential and used only to evaluate your qualifications for job opportunities within their organization or any affiliated groups.</p>
+                
+                <p>Your data will be securely stored by the form owner and will not be shared with third parties without your consent, except where required by law or when necessary for recruitment-related processes.</p>
+                
+                <p>You may contact the form owner at any time to access, update, or request the deletion of your personal information.</p>
+                
+                <p style="margin-top: 24px; padding: 16px; background: #e7f3ff; border-radius: 8px; border-left: 4px solid #4285f4;">
+                    <strong>By clicking 'Submit,' you confirm that you have read, understood, and consent to the processing of your personal data by the form owner in accordance with their privacy practices.</strong>
+                </p>
+            </div>
+
+            <button class="terms-close-btn" onclick="closePrivacyModal()">
+                <i class="fas fa-check"></i>
+                I Understand and Agree
+            </button>
+        </div>
+    </div>
+
     <script>
+        // Privacy Modal Functions
+        function openPrivacyModal() {
+            document.getElementById('privacyModal').classList.add('active');
+        }
+
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').classList.remove('active');
+            // Check the checkbox when modal is closed
+            document.getElementById('privacyTermsCheckbox').checked = true;
+            validatePrivacyCheckbox();
+        }
+
+        // Privacy checkbox validation
+        const privacyTermsCheckbox = document.getElementById('privacyTermsCheckbox');
+        const privacyCheckboxContainer = document.getElementById('privacyCheckbox');
+        const privacyError = document.getElementById('privacyError');
+
+        function validatePrivacyCheckbox() {
+            if (privacyTermsCheckbox.checked) {
+                privacyCheckboxContainer.classList.remove('error');
+                privacyError.classList.remove('show');
+                return true;
+            } else {
+                privacyCheckboxContainer.classList.add('error');
+                privacyError.classList.add('show');
+                return false;
+            }
+        }
+
+        privacyTermsCheckbox.addEventListener('change', validatePrivacyCheckbox);
+
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM loaded, initializing job selection...');
@@ -730,6 +967,12 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
                         fileUploadArea.scrollIntoView({ behavior: 'smooth' });
                         return;
                     }
+
+                    // Validate privacy checkbox
+                    if (!validatePrivacyCheckbox()) {
+                        privacyTermsCheckbox.focus();
+                        return;
+                    }
                     
                     if (submitLoading) submitLoading.style.display = 'inline-block';
                     if (submitBtn) submitBtn.disabled = true;
@@ -748,6 +991,8 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
                             jobDetails.classList.remove('show');
                             if (selectedFile) selectedFile.classList.remove('show');
                             fileUploadArea.classList.remove('has-file');
+                            privacyCheckboxContainer.classList.remove('error');
+                            privacyError.classList.remove('show');
                         } else {
                             alert('Error: ' + data.message);
                         }
@@ -784,6 +1029,13 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
             });
             
             console.log('Job selection setup complete!');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('privacyModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePrivacyModal();
+            }
         });
     </script>
 </body>
