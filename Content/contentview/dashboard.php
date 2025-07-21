@@ -2,13 +2,14 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$title = "Hireswift - Dashboard";
+
 require_once '../Query/DashboardData.php';
 
-// Get current user from session (adjust based on your authentication system)
+$currentUser = $_SESSION['id'];
+
 
 // Initialize dashboard data with current user
-$dashboardData = new DashboardData($_SESSION['id']);
+$dashboardData = new DashboardData($currentUser);
 
 // Get real data from database (now filtered by user)
 $totalApplications = $dashboardData->getTotalApplications();
@@ -55,6 +56,7 @@ $trendData = $completeTrendData;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications Dashboard</title>
     <link rel="stylesheet" href="./CSS/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -382,6 +384,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     <?php endif; ?>
 
+    // Helper function to get status-specific colors
+    function getStatusColors(statusLabels) {
+        const statusColorMap = {
+            'Pending': '#ffc022ff',
+            'Reviewing': '#1db8d3ff',
+            'Shortlisted': '#7fff9dff',
+            'Interviewed': '#15b6d2ff',
+            'Accepted': '#1ad927ff',
+            'Rejected': '#ec1127ff'
+        };
+        
+        return statusLabels.map(status => {
+            return statusColorMap[status] || '#e9ecef'; // fallback color
+        });
+    }
+
     // Status Chart
     const statusLabels = <?php echo json_encode(array_column($statusData, 'status')); ?>;
     const statusValues = <?php echo json_encode(array_column($statusData, 'count')); ?>;
@@ -396,15 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 labels: statusLabels,
                 datasets: [{
                     data: statusValues,
-                    backgroundColor: [
-                        '#ff9800',
-                        '#34a853',
-                        '#f44336',
-                        '#2196f3',
-                        '#9c27b0',
-                        '#00bcd4',
-                        '#795548'
-                    ],
+                    backgroundColor: getStatusColors(statusLabels),
                     borderWidth: 0,
                     hoverOffset: settings.isMobile ? 5 : 10
                 }]
