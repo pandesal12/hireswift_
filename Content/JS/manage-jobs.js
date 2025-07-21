@@ -13,6 +13,7 @@ function openJobModal(jobId = null) {
     title.textContent = "Add New Job"
     document.getElementById("jobForm").reset()
     document.getElementById("jobId").value = ""
+    document.getElementById("jobStatus").value = "Active" // Default to Active for new jobs
     skillTags = []
     educationTags = []
     updateTagsDisplay()
@@ -123,6 +124,45 @@ function deleteJob(jobId) {
   }
 }
 
+function shareJob(jobId) {
+  function encryptNumber(num) {
+    const numStr = num.toString()
+    const secret = 123 // XOR key (must be <= 255)
+
+    const byteArr = []
+    for (let i = 0; i < numStr.length; i++) {
+      const xorByte = numStr.charCodeAt(i) ^ secret
+      byteArr.push(xorByte)
+    }
+
+    // Convert byte array to binary string
+    const binaryStr = String.fromCharCode(...byteArr)
+    return btoa(binaryStr) // Base64 encode
+  }
+
+  const encrypted = encodeURIComponent(encryptNumber(jobId))
+
+  // TODO: change later to non-localhost url
+  const shareUrl = `http://localhost/hireswift_/Forms/index.php?link=${encodeURIComponent(getCompanyName())}`
+
+  navigator.clipboard
+    .writeText(shareUrl)
+    .then(() => {
+      alert("Company application link copied to clipboard.")
+    })
+    .catch((err) => {
+      console.error("Failed to copy: ", err)
+      // Fallback: show the URL in a prompt
+      prompt("Copy this link:", shareUrl)
+    })
+}
+
+function getCompanyName() {
+  // This should be dynamically set based on the current user's company
+  // For now, we'll extract it from the page or use a global variable
+  // You might want to pass this from PHP or store it in a data attribute
+  return "<?php echo isset($companyName) ? $companyName : 'your-company'; ?>"
+}
 
 function loadJobData(jobId) {
   console.log("Fetching job data for ID:", jobId)
@@ -146,6 +186,7 @@ function loadJobData(jobId) {
       document.getElementById("jobId").value = job.id
       document.getElementById("jobTitle").value = job.title
       document.getElementById("employmentType").value = job.employment_type
+      document.getElementById("jobStatus").value = job.status || "Active"
       document.getElementById("jobDescription").value = job.description
 
       skillTags = job.skills || []

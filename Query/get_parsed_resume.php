@@ -27,13 +27,42 @@ try {
     
     $application = mysqli_fetch_assoc($verifyResult);
     $parsedPath = $application['parsed_resume_path'];
+
+    // Get job requirements for comparison
+    $jobQuery = "SELECT j.skills, j.education FROM jobs j 
+             INNER JOIN applications a ON a.job_id = j.id 
+             WHERE a.id = $applicationId";
+    $jobResult = mysqli_query($con, $jobQuery);
+
+    if (mysqli_num_rows($jobResult) > 0) {
+        $jobData = mysqli_fetch_assoc($jobResult);
+        $jobSkills = json_decode($jobData['skills'], true) ?: [];
+        $jobEducation = json_decode($jobData['education'], true) ?: [];
+        
+        $response['job_requirements'] = [
+            'skills' => $jobSkills,
+            'education' => $jobEducation
+        ];
+    } else {
+        $response['job_requirements'] = [
+            'skills' => [],
+            'education' => []
+        ];
+    }
     
-    if (empty($parsedPath) || !file_exists($parsedPath)) {
+    if (empty($parsedPath)) {
         throw new Exception('Parsed resume file not found');
     }
     
+    // Convert relative path to absolute path
+    $absolutePath = '../' . $parsedPath;
+    
+    if (!file_exists($absolutePath)) {
+        throw new Exception('Parsed resume file does not exist at: ' . $absolutePath);
+    }
+    
     // Read and decode JSON file
-    $jsonContent = file_get_contents($parsedPath);
+    $jsonContent = file_get_contents($absolutePath);
     $resumeData = json_decode($jsonContent, true);
     
     if (!$resumeData) {

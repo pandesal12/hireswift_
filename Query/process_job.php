@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $job_id = isset($_POST['job_id']) ? (int)$_POST['job_id'] : 0;
         $title = mysqli_real_escape_string($con, trim($_POST['job_title']));
         $employment_type = mysqli_real_escape_string($con, $_POST['employment_type']);
+        $status = mysqli_real_escape_string($con, $_POST['job_status']);
         $skills = json_decode($_POST['skills'], true) ?: [];
         $education = json_decode($_POST['education'], true) ?: [];
         $description = mysqli_real_escape_string($con, trim($_POST['job_description']));
@@ -37,6 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception('Employment type is required');
         }
         
+        if (empty($status)) {
+            throw new Exception('Job status is required');
+        }
+        
         if (empty($description)) {
             throw new Exception('Job description is required');
         }
@@ -45,6 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $valid_types = ['Full Time', 'Part Time', 'Contract', 'Internship'];
         if (!in_array($employment_type, $valid_types)) {
             throw new Exception('Invalid employment type');
+        }
+        
+        // Validate status
+        $valid_statuses = ['Active', 'Inactive'];
+        if (!in_array($status, $valid_statuses)) {
+            throw new Exception('Invalid job status');
         }
         
         // Prepare JSON data
@@ -56,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql = "UPDATE jobs SET 
                     title = '$title',
                     employment_type = '$employment_type',
+                    status = '$status',
                     skills = '$skills_json',
                     education = '$education_json',
                     description = '$description',
@@ -87,9 +99,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 throw new Exception('Duplicate job detected. A job with the same title and employment type already exists.');
             }
 
-            // Insert new job with link_id and user_id
-            $sql = "INSERT INTO jobs (title, employment_type, skills, education, description, created_by, link_id) 
-                    VALUES ('$title', '$employment_type', '$skills_json', '$education_json', '$description', '$user_id', $link_id)";
+            // Insert new job with link_id and user_id (default status is Active)
+            $sql = "INSERT INTO jobs (title, employment_type, status, skills, education, description, created_by, link_id) 
+                    VALUES ('$title', '$employment_type', '$status', '$skills_json', '$education_json', '$description', '$user_id', $link_id)";
 
             if (mysqli_query($con, $sql)) {
                 $response['success'] = true;

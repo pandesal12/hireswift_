@@ -2,6 +2,7 @@
 require_once '../Query/connect.php';
 
 // Get user's jobs for filtering
+$title = "Hireswift - Ranking";
 $user_id = $_SESSION['id'];
 $jobsQuery = "SELECT id, title FROM jobs WHERE created_by = $user_id ORDER BY title ASC";
 $jobsResult = mysqli_query($con, $jobsQuery);
@@ -17,7 +18,7 @@ $selectedJobId = isset($_GET['job_id']) ? (int)$_GET['job_id'] : 0;
 $applicationsQuery = "SELECT a.*, j.title as job_title 
                      FROM applications a 
                      INNER JOIN jobs j ON a.job_id = j.id 
-                     WHERE j.created_by = $user_id AND a.score > 0";
+                     WHERE j.created_by = $user_id";
 
 if ($selectedJobId > 0) {
     $applicationsQuery .= " AND a.job_id = $selectedJobId";
@@ -108,6 +109,10 @@ while ($row = mysqli_fetch_assoc($applicationsResult)) {
                             <button class="btn btn-primary btn-sm" onclick="viewResume('<?php echo htmlspecialchars($application['resume_pdf_path']); ?>')">
                                 <i class="fas fa-file-pdf"></i>
                                 PDF
+                            </button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteApplication(<?php echo $application['id']; ?>)">
+                                <i class="fas fa-trash"></i>
+                                Delete
                             </button>
                         </div>
                     </td>

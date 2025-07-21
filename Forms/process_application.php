@@ -5,8 +5,12 @@ require_once '../Query/connect.php';
 $response = ['success' => false, 'message' => ''];
 
 try {
-    // Validate required fields
-    if (!isset($_POST['full_name']) || !isset($_POST['email']) || !isset($_POST['job_id']) || !isset($_POST['link_id'])) {
+    // Log the start of processing
+    $logEntry = date('Y-m-d H:i:s') . " - Application processing started\n";
+    file_put_contents('../Temporary/application_debug.txt', $logEntry, FILE_APPEND | LOCK_EX);
+
+    // Validate required fields (removed full_name and email validation)
+    if (!isset($_POST['job_id']) || !isset($_POST['link_id'])) {
         throw new Exception('Missing required fields');
     }
 
@@ -29,15 +33,12 @@ try {
     }
 
     // Sanitize input data
-    $fullName = mysqli_real_escape_string($con, trim($_POST['full_name']));
-    $email = mysqli_real_escape_string($con, trim($_POST['email']));
     $jobId = (int)$_POST['job_id'];
     $linkId = (int)$_POST['link_id'];
 
-    // Validate email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        throw new Exception('Invalid email address');
-    }
+    // Log the extracted data
+    $logEntry = date('Y-m-d H:i:s') . " - Data extracted: JobID=$jobId, LinkID=$linkId\n";
+    file_put_contents('../Temporary/application_debug.txt', $logEntry, FILE_APPEND | LOCK_EX);
 
     // Verify job exists and belongs to the company
     $jobQuery = "SELECT * FROM jobs WHERE id = $jobId AND link_id = $linkId AND status = 'Active'";
@@ -66,12 +67,16 @@ try {
         throw new Exception('Failed to save uploaded file');
     }
 
-    // Get absolute path for the Python script
-    $absolutePath = realpath($uploadPath);
+    // Log file upload success
+    $logEntry = date('Y-m-d H:i:s') . " - File uploaded successfully: $uploadPath\n";
+    file_put_contents('../Temporary/application_debug.txt', $logEntry, FILE_APPEND | LOCK_EX);
 
-    // Insert application record
+    // Store relative path in database (without ../)
+    $relativePath = 'Uploads/' . $uniqueName;
+
+    // Insert application record with placeholder values for name and email (will be updated by Python script)
     $insertQuery = "INSERT INTO applications (job_id, applicant_name, email, resume_pdf_path, status, created_at) 
-                    VALUES ($jobId, '$fullName', '$email', '$uploadPath', 'Pending', NOW())";
+                    VALUES ($jobId, 'Processing...', 'processing@temp.com', '$relativePath', 'Pending', NOW())";
 
     if (!mysqli_query($con, $insertQuery)) {
         // Clean up uploaded file if database insert fails
@@ -81,32 +86,52 @@ try {
 
     $applicationId = mysqli_insert_id($con);
 
-    // Execute NLP processing in background
-    $python_path = "C:\\Users\\Kazumi\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"; // Update this path
-    $pythonScript = '../Python/NLP.py';
-    $command = "\"$python_path\" \"$pythonScript\" \"$absolutePath\" $applicationId > /dev/null 2>&1 &";
+    // Log database insert success
+    $logEntry = date('Y-m-d H:i:s') . " - Application saved to database with ID: $applicationId\n";
+    file_put_contents('../Temporary/application_debug.txt', $logEntry, FILE_APPEND | LOCK_EX);
+
+    // Get absolute path for the Python script
+    $absolutePath = realpath($uploadPath);
     
-    // For Windows, use different background execution
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        $command = "start /B \"$python_path\" \"$pythonScript\" \"$absolutePath\" $applicationId";
-    }
+    // Log Python execution attempt
+    $logEntry = date('Y-m-d H:i:s') . " - Attempting to execute Python script with file: $absolutePath\n";
+    file_put_contents('../Temporary/application_debug.txt', $logEntry, FILE_APPEND | LOCK_EX);
+
+    // Execute NLP processing
+    $python_path = "C:\\Users\\Kazumi\\AppData\\Local\\Programs\\Python\\Python310\\python.exe";
+    $pythonScript = realpath('../Python/NLP.py');
     
-    exec($command);
+    // Log the command that will be executed
+    $command = "\"$python_path\" \"$pythonScript\" \"$absolutePath\" $applicationId";
+    $logEntry = date('Y-m-d H:i:s') . " - Python command: $command\n";
+    file_put_contents('../Temporary/application_debug.txt', $logEntry, FILE_APPEND | LOCK_EX);
+    
+    // Execute the command and capture output
+    $output = [];
+    $returnCode = 0;
+    exec($command . " 2>&1", $output, $returnCode);
+    
+    // Log Python execution result
+    $logEntry = date('Y-m-d H:i:s') . " - Python execution completed. Return code: $returnCode\n";
+    $logEntry .= "Python output: " . implode("\n", $output) . "\n";
+    file_put_contents('../Temporary/application_debug.txt', $logEntry, FILE_APPEND | LOCK_EX);
 
     $response['success'] = true;
     $response['message'] = 'Application submitted successfully';
     $response['application_id'] = $applicationId;
+    $response['python_return_code'] = $returnCode;
+    $response['python_output'] = $output;
 
-    // Log the activity
-    $logEntry = date('Y-m-d H:i:s') . " - Application ID: $applicationId, File: $uniqueName, Job ID: $jobId\n";
-    file_put_contents('../Temporary/application_log.txt', $logEntry, FILE_APPEND | LOCK_EX);
+    // Log success
+    $logEntry = date('Y-m-d H:i:s') . " - Application processing completed successfully\n\n";
+    file_put_contents('../Temporary/application_debug.txt', $logEntry, FILE_APPEND | LOCK_EX);
 
 } catch (Exception $e) {
     $response['message'] = $e->getMessage();
     
     // Log errors
-    $errorEntry = date('Y-m-d H:i:s') . " - ERROR: " . $e->getMessage() . "\n";
-    file_put_contents('../Temporary/error_log.txt', $errorEntry, FILE_APPEND | LOCK_EX);
+    $errorEntry = date('Y-m-d H:i:s') . " - ERROR: " . $e->getMessage() . "\n\n";
+    file_put_contents('../Temporary/application_debug.txt', $errorEntry, FILE_APPEND | LOCK_EX);
 }
 
 echo json_encode($response);

@@ -1,0 +1,316 @@
+2025-07-21 15:51:52 - Application processing started
+2025-07-21 15:51:52 - Data extracted: JobID=23, LinkID=1
+2025-07-21 15:51:52 - File uploaded successfully: ../Uploads/graphic-designer-resume-example_687e45f8ba25f.pdf
+2025-07-21 15:51:52 - Application saved to database with ID: 20
+2025-07-21 15:51:52 - Attempting to execute Python script with file: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e45f8ba25f.pdf
+2025-07-21 15:51:52 - Python command: "C:\Users\Kazumi\AppData\Local\Programs\Python\Python310\python.exe" "D:\xamp\htdocs\hireswift_\Python\NLP.py" "D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e45f8ba25f.pdf" 20
+2025-07-21 15:52:13 - Python execution completed. Return code: 0
+Python output: Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e45f8ba25f.pdf
+Application ID: 20
+Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e45f8ba25f_parsed.json
+Database updated successfully
+Matching score: 450.0%
+=== PARSED RESUME DATA ===
+{
+    "Name": "RHODA JACKSON",
+    "Email": "rhodajackson@email.com",
+    "Phone": "123) 456-7890\n",
+    "Skills": [
+        "Adobe Photoshop",
+        " Adobe Illustrator",
+        " Adobe After Effects",
+        " Adobe InDesign",
+        " Adobe Premiere Pro",
+        " Facebook",
+        " Instagram",
+        " TikTok",
+        " HTML",
+        " CSS",
+        " Microsoft Word",
+        " PowerPoint",
+        " Graphic Design",
+        " Video Production",
+        " Motion Graphics",
+        " UI Design",
+        " Visual Design",
+        " Marketing Design",
+        " Branding",
+        " Social Media Marketing",
+        " A/B Testing",
+        " Team Leadership",
+        " Mentoring",
+        " Web Design",
+        " Presentation Design",
+        " Client Management",
+        " Content Creation"
+    ],
+    "Education": [],
+    "Experience": [
+        "WORK EXPERIENCE",
+        "Worked with editorial, product marketing, social, and creative",
+        "Organized a cross-functional workshop on the importance of",
+        "Implemented an A/B testing framework for digital ads, which"
+    ],
+    "GPA": "Not Found",
+    "Summary": "Rhoda Jackson is a Graphic Designer with experience at Mozilla, Carta Healthcare, and Emanate. At Mozilla, she improved ad performance by 19% and content shareability by 57% through designing marketing video assets and graphic standards. Her work at Carta Healthcare boosted social engagement by 32% and slashed cost per acquisition by 18%, also creating graphics for a public health campaign reaching over 80,000 community members and mentoring a team. As an intern at Emanate, she built designs for 17 clients and produced social media content with over 1,600 engagement points. Rhoda holds a B.F.A. in Visual Arts from the University of Chicago.",
+    "Score": 450.0
+}
+2025-07-21 15:52:13 - Application processing completed successfully
+
+2025-07-21 15:58:14 - Application processing started
+2025-07-21 15:58:14 - Data extracted: JobID=23, LinkID=1
+2025-07-21 15:58:14 - File uploaded successfully: ../Uploads/graphic-designer-resume-example_687e4776c4849.pdf
+2025-07-21 15:58:14 - Application saved to database with ID: 21
+2025-07-21 15:58:14 - Attempting to execute Python script with file: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e4776c4849.pdf
+2025-07-21 15:58:14 - Python command: "C:\Users\Kazumi\AppData\Local\Programs\Python\Python310\python.exe" "D:\xamp\htdocs\hireswift_\Python\NLP.py" "D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e4776c4849.pdf" 21
+2025-07-21 15:58:27 - Python execution completed. Return code: 1
+Python output: Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e4776c4849.pdf
+Application ID: 21
+Fatal error: name 'calculate_score' is not defined
+2025-07-21 15:58:27 - Application processing completed successfully
+
+2025-07-21 15:59:07 - Application processing started
+2025-07-21 15:59:07 - Data extracted: JobID=23, LinkID=1
+2025-07-21 15:59:07 - File uploaded successfully: ../Uploads/graphic-designer-resume-example_687e47ab10802.pdf
+2025-07-21 15:59:07 - Application saved to database with ID: 22
+2025-07-21 15:59:07 - Attempting to execute Python script with file: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e47ab10802.pdf
+2025-07-21 15:59:07 - Python command: "C:\Users\Kazumi\AppData\Local\Programs\Python\Python310\python.exe" "D:\xamp\htdocs\hireswift_\Python\NLP.py" "D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e47ab10802.pdf" 22
+2025-07-21 15:59:26 - Python execution completed. Return code: 0
+Python output: Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e47ab10802.pdf
+Application ID: 22
+Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e47ab10802_parsed.json
+Database updated successfully
+Matching score: 33.33%
+=== PARSED RESUME DATA ===
+{
+    "Name": "Rhoda Jackson",
+    "Email": "rhodajackson@email.com",
+    "Phone": "123) 456-7890\n",
+    "Skills": [
+        "Adobe Photoshop",
+        "Adobe Illustrator",
+        "Adobe After Effects",
+        "Adobe InDesign",
+        "Adobe Premiere Pro",
+        "Facebook",
+        "Instagram",
+        "TikTok",
+        "HTML",
+        "CSS",
+        "Microsoft Word",
+        "Microsoft PowerPoint",
+        "Graphic Design",
+        "Motion Graphics",
+        "Video Editing",
+        "UI Design",
+        "Marketing",
+        "Branding",
+        "Collaboration",
+        "A/B Testing",
+        "Mentoring",
+        "Social Media Management",
+        "Public Relations"
+    ],
+    "Education": [],
+    "Experience": [
+        "WORK EXPERIENCE",
+        "Worked with editorial, product marketing, social, and creative",
+        "Organized a cross-functional workshop on the importance of",
+        "Implemented an A/B testing framework for digital ads, which"
+    ],
+    "GPA": "Not Found",
+    "Summary": "Rhoda Jackson is an accomplished Graphic Designer with a B.F.A. in Visual Arts from the University of Chicago, currently contributing to Mozilla. In her current role, she has significantly improved ad performance by 19% and content shareability by 57% through designing marketing video assets and establishing graphic design standards. Her prior experience as a Junior Graphic Designer at Carta Healthcare saw her boost social engagement by 32% and develop graphics for a public health campaign reaching over 80,000 community members. Additionally, she has mentored junior designers, implemented A/B testing frameworks that slashed cost per acquisition by 18%, and created impactful designs for diverse clients as an intern, including revamping company branding and boosting social media engagement.",
+    "Score": 33.33
+}
+2025-07-21 15:59:26 - Application processing completed successfully
+
+2025-07-21 16:05:39 - Application processing started
+2025-07-21 16:05:39 - Data extracted: JobID=23, LinkID=1
+2025-07-21 16:05:39 - File uploaded successfully: ../Uploads/graphic-designer-resume-example_687e49331258b.pdf
+2025-07-21 16:05:39 - Application saved to database with ID: 23
+2025-07-21 16:05:39 - Attempting to execute Python script with file: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e49331258b.pdf
+2025-07-21 16:05:39 - Python command: "C:\Users\Kazumi\AppData\Local\Programs\Python\Python310\python.exe" "D:\xamp\htdocs\hireswift_\Python\NLP.py" "D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e49331258b.pdf" 23
+2025-07-21 16:06:02 - Python execution completed. Return code: 0
+Python output: Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e49331258b.pdf
+Application ID: 23
+Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e49331258b_parsed.json
+Database updated successfully
+Matching score: 40.0%
+=== PARSED RESUME DATA ===
+{
+    "Name": "RHODA JACKSON",
+    "Email": "rhodajackson@email.com",
+    "Phone": "123) 456-7890\n",
+    "Skills": [
+        "Adobe Photoshop",
+        "Adobe Illustrator",
+        "Adobe After Effects",
+        "Adobe InDesign",
+        "Adobe Premiere Pro",
+        "Facebook",
+        "Instagram",
+        "TikTok",
+        "HTML",
+        "CSS",
+        "Microsoft Word",
+        "PowerPoint",
+        "Graphic Design",
+        "Video Production",
+        "Motion Graphics",
+        "Sound Design",
+        "UI Design",
+        "Branding",
+        "Logo Design",
+        "Presentation Design",
+        "Content Creation",
+        "Social Media Management",
+        "Web Design",
+        "A/B Testing",
+        "Team Leadership",
+        "Digital Marketing"
+    ],
+    "Education": [
+        "B.F.A."
+    ],
+    "Experience": [
+        "WORK EXPERIENCE",
+        "Worked with editorial, product marketing, social, and creative",
+        "Organized a cross-functional workshop on the importance of",
+        "Implemented an A/B testing framework for digital ads, which"
+    ],
+    "GPA": "Not Found",
+    "Summary": "Rhoda Jackson is an accomplished Graphic Designer with experience at Mozilla, Carta Healthcare, and Emanate, holding a B.F.A. in Visual Arts from the University of Chicago. At Mozilla, she significantly improved ad performance by 19% and content shareability by 57% through the design of marketing video assets and the creation of graphic design standards. Her prior role at Carta Healthcare saw her boost social engagement by 32% and slash cost per acquisition by 18% by developing original graphics and implementing A/B testing. She also gained foundational experience designing for 17 clients and creating visual content that garnered over 1,600 engagement points during her internship.",
+    "Score": 40.0
+}
+2025-07-21 16:06:02 - Application processing completed successfully
+
+2025-07-21 16:16:23 - Application processing started
+2025-07-21 16:16:23 - Data extracted: JobID=1, LinkID=1
+2025-07-21 16:16:23 - File uploaded successfully: ../Uploads/Sample-Resume-Car-Sales_687e4bb75a16c.pdf
+2025-07-21 16:16:23 - Application saved to database with ID: 24
+2025-07-21 16:16:23 - Attempting to execute Python script with file: D:\xamp\htdocs\hireswift_\Uploads\Sample-Resume-Car-Sales_687e4bb75a16c.pdf
+2025-07-21 16:16:23 - Python command: "C:\Users\Kazumi\AppData\Local\Programs\Python\Python310\python.exe" "D:\xamp\htdocs\hireswift_\Python\NLP.py" "D:\xamp\htdocs\hireswift_\Uploads\Sample-Resume-Car-Sales_687e4bb75a16c.pdf" 24
+2025-07-21 16:16:37 - Python execution completed. Return code: 0
+Python output: Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\Sample-Resume-Car-Sales_687e4bb75a16c.pdf
+Application ID: 24
+Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\Sample-Resume-Car-Sales_687e4bb75a16c_parsed.json
+Database updated successfully
+Matching score: 0.0%
+=== PARSED RESUME DATA ===
+{
+    "Name": "Malik Rabb",
+    "Email": "mrabb@email.com",
+    "Phone": "315) 245-0902 ",
+    "Skills": [
+        "Communication",
+        "Active listening",
+        "Empathy",
+        "Writing",
+        "Car knowledge"
+    ],
+    "Education": [],
+    "Experience": [
+        "Motivated young professional with over two years of experience in automobile sales. Seeking a",
+        "position as a Salesperson at Potomac Cars and Trucks. Exceeded sales quota with a 97% customer"
+    ],
+    "GPA": "Not Found",
+    "Summary": "Malik Rabb is a motivated young professional with over two years of experience in automobile sales, currently serving as an Automobile Salesperson at Richmond Area Cars and Trucks since May 2020. During his tenure, he consistently exceeded sales quotas, achieving an impressive 97% customer satisfaction rating for three consecutive quarters in 2021. Rabb excels at detailing products for customers, learning about vehicles, and inspecting cars to ensure quality. He also holds a Certified Professional Sales Person certification from 2023 and is actively seeking a Salesperson position at Potomac Cars and Trucks.",
+    "Score": 0.0
+}
+2025-07-21 16:16:37 - Application processing completed successfully
+
+2025-07-21 16:19:25 - Application processing started
+2025-07-21 16:19:25 - Data extracted: JobID=1, LinkID=1
+2025-07-21 16:19:25 - File uploaded successfully: ../Uploads/sample_687e4c6d1fca7.pdf
+2025-07-21 16:19:25 - Application saved to database with ID: 25
+2025-07-21 16:19:25 - Attempting to execute Python script with file: D:\xamp\htdocs\hireswift_\Uploads\sample_687e4c6d1fca7.pdf
+2025-07-21 16:19:25 - Python command: "C:\Users\Kazumi\AppData\Local\Programs\Python\Python310\python.exe" "D:\xamp\htdocs\hireswift_\Python\NLP.py" "D:\xamp\htdocs\hireswift_\Uploads\sample_687e4c6d1fca7.pdf" 25
+2025-07-21 16:19:44 - Python execution completed. Return code: 0
+Python output: Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e4c6d1fca7.pdf
+Application ID: 25
+Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e4c6d1fca7_parsed.json
+Database updated successfully
+Matching score: 60.0%
+=== PARSED RESUME DATA ===
+{
+    "Name": "Cindy Lou Who",
+    "Email": "cindylou@nova.edu",
+    "Phone": "954-555-1212 ",
+    "Skills": [
+        "Human-Computer Interaction",
+        "Artificial Intelligence",
+        "3D Animation",
+        "Logic Programming",
+        "Quantum Mechanics",
+        "Theory of Computation",
+        "Machine Learning",
+        "Computer Graphics",
+        "Perl",
+        "Java",
+        "C++",
+        "HTML",
+        "PHP",
+        "MySQL",
+        "Scheme",
+        "MatLab",
+        "Microsoft Office",
+        "Adobe Photoshop",
+        "Dreamweaver",
+        "3ds Max",
+        "Windows",
+        "Mac OS",
+        "Linux",
+        "Self-motivated",
+        "Creative Thinking",
+        "Detail-oriented",
+        "Time Management",
+        "Wiki Development",
+        "Blog Development",
+        "Social Network Development",
+        "Technical Support",
+        "Software Development",
+        "Web Development",
+        "Website Maintenance",
+        "Technical Administration",
+        "Intranet Administration",
+        "Calendar System Administration",
+        "Lecturing",
+        "Public Speaking",
+        "Teaching",
+        "Group Instruction",
+        "Grading",
+        "Assessment",
+        "Mentoring",
+        "Student Support",
+        "Computer Literacy Instruction",
+        "Tutoring",
+        "Math Instruction",
+        "Science Instruction",
+        "Music Instruction",
+        "Guitar Instruction",
+        "Piano Instruction",
+        "Performance Preparation",
+        "Accompaniment"
+    ],
+    "Education": [
+        "B.S. in Computer Science, Expected May 2010"
+    ],
+    "Experience": [
+        "Collaborative User Experience Group Intern",
+        "Developed wikis, blogs, and social networks with a team of computer and social scientists",
+        "Contributed technical support to development of groundbreaking networking software to be"
+    ],
+    "GPA": "3.75",
+    "Summary": "Cindy Lou Who is a Computer Science major at Nova Southeastern University, expecting to graduate in May 2010 with minors in Mathematics and Physics, holding a 3.75 GPA and Dean's List honors. Her professional experience includes an internship at ABC Research, where she developed collaborative web tools and provided technical support for networking software. She also works as a Student Web Developer for NSU's Library Application Services, managing university websites and assisting with intranet administration. Further demonstrating her diverse skills, she served as a Teaching Assistant for Computer Science and Physics courses at NSU, and taught computer skills at the YMCA, alongside actively tutoring in math and science and teaching music lessons.",
+    "Score": 60.0
+}
+2025-07-21 16:19:44 - Application processing completed successfully
+

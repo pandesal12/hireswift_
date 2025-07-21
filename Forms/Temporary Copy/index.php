@@ -19,7 +19,7 @@ if (mysqli_num_rows($companyResult) === 0) {
 $company = mysqli_fetch_assoc($companyResult);
 $linkId = $company['link_id'];
 
-// Get ONLY ACTIVE jobs for this company
+// Get active jobs for this company
 $jobsQuery = "SELECT * FROM jobs WHERE link_id = $linkId AND status = 'Active' ORDER BY title ASC";
 $jobsResult = mysqli_query($con, $jobsQuery);
 $jobs = [];
@@ -178,7 +178,7 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
 
         .skill-tag {
             display: inline-block;
-            background: linear-gradient(135deg, #4285f4, #145bffff);
+            background: linear-gradient(135deg, #4285f4, #34a853);
             color: white;
             padding: 6px 12px;
             border-radius: 20px;
@@ -357,42 +357,6 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
             border: 1px solid #f5c6cb;
         }
 
-        .info-note {
-            background: #e7f3ff;
-            border: 1px solid #4285f4;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 24px;
-            color: #1565c0;
-            font-size: 14px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .info-note i {
-            color: #4285f4;
-            font-size: 18px;
-            margin-top: 2px;
-        }
-
-        .no-jobs-message {
-            text-align: center;
-            padding: 40px;
-            color: #6c757d;
-        }
-
-        .no-jobs-message i {
-            font-size: 48px;
-            margin-bottom: 16px;
-            color: #dee2e6;
-        }
-
-        .no-jobs-message h3 {
-            margin-bottom: 8px;
-            color: #495057;
-        }
-
         @media (max-width: 768px) {
             .application-container {
                 margin: 10px;
@@ -425,24 +389,27 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
 
         <div class="form-content">
             <?php if (empty($jobs)): ?>
-            <div class="no-jobs-message">
-                <i class="fas fa-briefcase"></i>
-                <h3>No Active Job Openings</h3>
-                <p>There are currently no active job positions available at <?php echo htmlspecialchars($companyName); ?>.</p>
-                <p>Please check back later for new opportunities.</p>
+            <div class="alert alert-error">
+                <i class="fas fa-exclamation-circle"></i>
+                No active job openings available at this time.
             </div>
             <?php else: ?>
-            
-            <div class="info-note">
-                <i class="fas fa-info-circle"></i>
-                <div>
-                    <strong>Smart Application Process:</strong> Simply select a position, upload your resume, and our AI will automatically extract your personal information, skills, and experience to match you with the job requirements.
-                </div>
-            </div>
             
             <form id="applicationForm" enctype="multipart/form-data">
                 <input type="hidden" name="link_id" value="<?php echo $linkId; ?>">
                 
+                <div class="form-group">
+                    <label class="form-label" for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="full_name" class="form-control" 
+                           placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" 
+                           placeholder="Enter your email address" required>
+                </div>
+
                 <div class="form-group">
                     <label class="form-label" for="jobSelect">Select Position</label>
                     <select id="jobSelect" name="job_id" class="form-control" required>

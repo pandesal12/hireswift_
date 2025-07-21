@@ -1,0 +1,582 @@
+2025-07-21 19:52:50 - === PYTHON SCRIPT STARTED ===
+2025-07-21 19:52:50 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\sample_687e2a0e8a792.pdf', '6']
+2025-07-21 19:52:50 - === MAIN FUNCTION STARTED ===
+2025-07-21 19:52:50 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e2a0e8a792.pdf
+2025-07-21 19:52:50 - Application ID: 6
+2025-07-21 19:52:50 - Getting job requirements for application ID: 6
+2025-07-21 19:52:50 - Attempting database connection...
+2025-07-21 19:52:50 - Database connection successful
+2025-07-21 19:52:50 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 19:52:50 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 19:52:50 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 19:52:50 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e2a0e8a792.pdf
+2025-07-21 19:52:50 - Text extraction successful, length: 2273
+2025-07-21 19:52:50 - Text cleaned, final length: 2176
+2025-07-21 19:52:50 - Skills found: ['PHP', 'MySQL']
+2025-07-21 19:52:50 - Score calculated: 40.0% (2/5 skills matched)
+2025-07-21 19:52:50 - Attempting to extract name using spaCy...
+2025-07-21 19:52:50 - Name extracted: Cindy Lou
+2025-07-21 19:52:50 - Education found: ['B.S. in Computer Science, Expected May 2010']
+2025-07-21 19:52:50 - Experience found: 3 items
+2025-07-21 19:52:50 - GPA found: 3.75
+2025-07-21 19:52:50 - Resume parsing completed. Score: 40.0%
+2025-07-21 19:52:50 - Created parsed directory: D:\xamp\htdocs\hireswift_\Uploads\parsed
+2025-07-21 19:52:50 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e2a0e8a792_parsed.json
+2025-07-21 19:52:50 - Updating application 6 in database...
+2025-07-21 19:52:50 - Attempting database connection...
+2025-07-21 19:52:50 - Database connection successful
+2025-07-21 19:52:51 - Database update successful
+2025-07-21 19:52:51 - Database updated successfully
+2025-07-21 19:52:51 - Final matching score: 40.0%
+2025-07-21 19:52:51 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 20:05:01 - === PYTHON SCRIPT STARTED ===
+2025-07-21 20:05:01 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\sample_687e2ce98711a.pdf', '7']
+2025-07-21 20:05:01 - === MAIN FUNCTION STARTED ===
+2025-07-21 20:05:01 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e2ce98711a.pdf
+2025-07-21 20:05:01 - Application ID: 7
+2025-07-21 20:05:01 - Getting job requirements for application ID: 7
+2025-07-21 20:05:01 - Attempting database connection...
+2025-07-21 20:05:01 - Database connection successful
+2025-07-21 20:05:01 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 20:05:01 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 20:05:01 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 20:05:01 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e2ce98711a.pdf
+2025-07-21 20:05:01 - Text extraction successful, length: 2273
+2025-07-21 20:05:01 - Text cleaned, final length: 2176
+2025-07-21 20:05:01 - Skills found: ['PHP', 'MySQL']
+2025-07-21 20:05:01 - Score calculated: 40.0% (2/5 skills matched)
+2025-07-21 20:05:01 - Attempting to extract name using spaCy...
+2025-07-21 20:05:01 - Name extracted: Cindy Lou
+2025-07-21 20:05:01 - Education found: ['B.S. in Computer Science, Expected May 2010']
+2025-07-21 20:05:01 - Experience found: 3 items
+2025-07-21 20:05:01 - GPA found: 3.75
+2025-07-21 20:05:01 - Resume parsing completed. Score: 40.0%
+2025-07-21 20:05:01 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e2ce98711a_parsed.json
+2025-07-21 20:05:01 - Updating application 7 in database...
+2025-07-21 20:05:01 - Attempting database connection...
+2025-07-21 20:05:01 - Database connection successful
+2025-07-21 20:05:01 - Database update successful
+2025-07-21 20:05:01 - Database updated successfully
+2025-07-21 20:05:01 - Final matching score: 40.0%
+2025-07-21 20:05:01 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 20:17:20 - === PYTHON SCRIPT STARTED ===
+2025-07-21 20:17:20 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\sample_687e2fcce902d.pdf', '8']
+2025-07-21 20:17:20 - === MAIN FUNCTION STARTED ===
+2025-07-21 20:17:20 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e2fcce902d.pdf
+2025-07-21 20:17:20 - Application ID: 8
+2025-07-21 20:17:20 - Getting job requirements for application ID: 8
+2025-07-21 20:17:20 - Attempting database connection...
+2025-07-21 20:17:20 - Database connection successful
+2025-07-21 20:17:20 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 20:17:20 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 20:17:20 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 20:17:20 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e2fcce902d.pdf
+2025-07-21 20:17:20 - Text extraction successful, length: 2273
+2025-07-21 20:17:20 - Text cleaned, final length: 2176
+2025-07-21 20:17:20 - Skills found: ['PHP', 'MySQL']
+2025-07-21 20:17:20 - Score calculated: 40.0% (2/5 skills matched)
+2025-07-21 20:17:20 - Attempting to extract name using spaCy...
+2025-07-21 20:17:21 - Name extracted: Cindy Lou
+2025-07-21 20:17:21 - Education found: ['B.S. in Computer Science, Expected May 2010']
+2025-07-21 20:17:21 - Experience found: 3 items
+2025-07-21 20:17:21 - GPA found: 3.75
+2025-07-21 20:17:21 - Generating summary using OpenAI API...
+2025-07-21 20:17:22 - Error generating summary: Error code: 401 - {'error': {'message': 'No auth credentials found', 'code': 401}}
+2025-07-21 20:17:22 - Resume parsing completed. Score: 40.0%
+2025-07-21 20:17:22 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e2fcce902d_parsed.json
+2025-07-21 20:17:22 - Updating application 8 in database...
+2025-07-21 20:17:22 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e2fcce902d_parsed.json -> Uploads/parsed/sample_687e2fcce902d_parsed.json
+2025-07-21 20:17:22 - Attempting database connection...
+2025-07-21 20:17:22 - Database connection successful
+2025-07-21 20:17:22 - Database update successful with relative path: Uploads/parsed/sample_687e2fcce902d_parsed.json
+2025-07-21 20:17:22 - Database updated successfully
+2025-07-21 20:17:22 - Final matching score: 40.0%
+2025-07-21 20:17:22 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 20:22:14 - === PYTHON SCRIPT STARTED ===
+2025-07-21 20:22:14 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\sample_687e30f2b8158.pdf', '9']
+2025-07-21 20:22:14 - === MAIN FUNCTION STARTED ===
+2025-07-21 20:22:14 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e30f2b8158.pdf
+2025-07-21 20:22:14 - Application ID: 9
+2025-07-21 20:22:14 - Getting job requirements for application ID: 9
+2025-07-21 20:22:14 - Attempting database connection...
+2025-07-21 20:22:14 - Database connection successful
+2025-07-21 20:22:14 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 20:22:14 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 20:22:14 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 20:22:14 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e30f2b8158.pdf
+2025-07-21 20:22:14 - Text extraction successful, length: 2273
+2025-07-21 20:22:14 - Text cleaned, final length: 2176
+2025-07-21 20:22:14 - Skills found: ['PHP', 'MySQL']
+2025-07-21 20:22:14 - Score calculated: 40.0% (2/5 skills matched)
+2025-07-21 20:22:14 - Attempting to extract name using spaCy...
+2025-07-21 20:22:15 - Name extracted: Cindy Lou
+2025-07-21 20:22:15 - Education found: ['B.S. in Computer Science, Expected May 2010']
+2025-07-21 20:22:15 - Experience found: 3 items
+2025-07-21 20:22:15 - GPA found: 3.75
+2025-07-21 20:22:15 - Generating summary using OpenAI API...
+2025-07-21 20:22:16 - Error generating summary: Error code: 401 - {'error': {'message': 'No auth credentials found', 'code': 401}}
+2025-07-21 20:22:16 - Resume parsing completed. Score: 40.0%
+2025-07-21 20:22:16 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e30f2b8158_parsed.json
+2025-07-21 20:22:16 - Updating application 9 in database...
+2025-07-21 20:22:16 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e30f2b8158_parsed.json -> Uploads/parsed/sample_687e30f2b8158_parsed.json
+2025-07-21 20:22:16 - Attempting database connection...
+2025-07-21 20:22:16 - Database connection successful
+2025-07-21 20:22:16 - Database update successful with relative path: Uploads/parsed/sample_687e30f2b8158_parsed.json
+2025-07-21 20:22:16 - Database updated successfully
+2025-07-21 20:22:16 - Final matching score: 40.0%
+2025-07-21 20:22:16 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 20:28:44 - === PYTHON SCRIPT STARTED ===
+2025-07-21 20:28:44 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\sample_687e32786efa3.pdf', '10']
+2025-07-21 20:28:44 - === MAIN FUNCTION STARTED ===
+2025-07-21 20:28:44 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e32786efa3.pdf
+2025-07-21 20:28:44 - Application ID: 10
+2025-07-21 20:28:44 - Getting job requirements for application ID: 10
+2025-07-21 20:28:44 - Attempting database connection...
+2025-07-21 20:28:44 - Database connection successful
+2025-07-21 20:28:44 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 20:28:44 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 20:28:44 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 20:28:44 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e32786efa3.pdf
+2025-07-21 20:28:44 - Text extraction successful, length: 2273
+2025-07-21 20:28:44 - Text cleaned, final length: 2176
+2025-07-21 20:28:44 - Skills found: ['PHP', 'MySQL']
+2025-07-21 20:28:44 - Score calculated: 40.0% (2/5 skills matched)
+2025-07-21 20:28:44 - Attempting to extract name using spaCy...
+2025-07-21 20:28:44 - Name extracted: Cindy Lou
+2025-07-21 20:28:44 - Education found: ['B.S. in Computer Science, Expected May 2010']
+2025-07-21 20:28:44 - Experience found: 3 items
+2025-07-21 20:28:44 - GPA found: 3.75
+2025-07-21 20:28:44 - Generating summary using OpenAI API...
+2025-07-21 20:28:45 - Error generating summary: Error code: 401 - {'error': {'message': 'No auth credentials found', 'code': 401}}
+2025-07-21 20:28:45 - Resume parsing completed. Score: 40.0%
+2025-07-21 20:28:45 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e32786efa3_parsed.json
+2025-07-21 20:28:45 - Updating application 10 in database...
+2025-07-21 20:28:45 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e32786efa3_parsed.json -> Uploads/parsed/sample_687e32786efa3_parsed.json
+2025-07-21 20:28:45 - Attempting database connection...
+2025-07-21 20:28:45 - Database connection successful
+2025-07-21 20:28:45 - Database update successful with relative path: Uploads/parsed/sample_687e32786efa3_parsed.json
+2025-07-21 20:28:45 - Database updated successfully
+2025-07-21 20:28:45 - Final matching score: 40.0%
+2025-07-21 20:28:45 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 20:33:14 - === PYTHON SCRIPT STARTED ===
+2025-07-21 20:33:14 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\sample_687e3386631c4.pdf', '11']
+2025-07-21 20:33:14 - === MAIN FUNCTION STARTED ===
+2025-07-21 20:33:14 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e3386631c4.pdf
+2025-07-21 20:33:14 - Application ID: 11
+2025-07-21 20:33:14 - Getting job requirements for application ID: 11
+2025-07-21 20:33:14 - Attempting database connection...
+2025-07-21 20:33:14 - Database connection successful
+2025-07-21 20:33:14 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 20:33:14 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 20:33:14 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 20:33:14 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e3386631c4.pdf
+2025-07-21 20:33:14 - Text extraction successful, length: 2273
+2025-07-21 20:33:14 - Text cleaned, final length: 2176
+2025-07-21 20:33:14 - Skills found: ['PHP', 'MySQL']
+2025-07-21 20:33:14 - Score calculated: 40.0% (2/5 skills matched)
+2025-07-21 20:33:14 - Attempting to extract name using spaCy...
+2025-07-21 20:33:14 - Name extracted: Cindy Lou
+2025-07-21 20:33:14 - Education found: ['B.S. in Computer Science, Expected May 2010']
+2025-07-21 20:33:14 - Experience found: 3 items
+2025-07-21 20:33:14 - GPA found: 3.75
+2025-07-21 20:33:14 - Generating summary using OpenAI API...
+2025-07-21 20:33:15 - Error generating summary: Error code: 401 - {'error': {'message': 'No auth credentials found', 'code': 401}}
+2025-07-21 20:33:15 - Resume parsing completed. Score: 40.0%
+2025-07-21 20:33:15 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e3386631c4_parsed.json
+2025-07-21 20:33:15 - Updating application 11 in database...
+2025-07-21 20:33:15 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e3386631c4_parsed.json -> Uploads/parsed/sample_687e3386631c4_parsed.json
+2025-07-21 20:33:15 - Attempting database connection...
+2025-07-21 20:33:15 - Database connection successful
+2025-07-21 20:33:15 - Database update successful with relative path: Uploads/parsed/sample_687e3386631c4_parsed.json
+2025-07-21 20:33:15 - Database updated successfully
+2025-07-21 20:33:15 - Final matching score: 40.0%
+2025-07-21 20:33:15 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 20:42:48 - === PYTHON SCRIPT STARTED ===
+2025-07-21 20:42:48 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\sample_687e35c33eabb.pdf', '12']
+2025-07-21 20:42:48 - === MAIN FUNCTION STARTED ===
+2025-07-21 20:42:48 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e35c33eabb.pdf
+2025-07-21 20:42:48 - Application ID: 12
+2025-07-21 20:42:48 - Getting job requirements for application ID: 12
+2025-07-21 20:42:48 - Attempting database connection...
+2025-07-21 20:42:48 - Database connection successful
+2025-07-21 20:42:48 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 20:42:48 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 20:42:48 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 20:42:48 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e35c33eabb.pdf
+2025-07-21 20:42:48 - Text extraction successful, length: 2273
+2025-07-21 20:42:48 - Text cleaned, final length: 2176
+2025-07-21 20:42:48 - Skills found: ['PHP', 'MySQL']
+2025-07-21 20:42:48 - Score calculated: 40.0% (2/5 skills matched)
+2025-07-21 20:42:48 - Attempting to extract name using spaCy...
+2025-07-21 20:42:48 - Name extracted: Cindy Lou
+2025-07-21 20:42:48 - Education found: ['B.S. in Computer Science, Expected May 2010']
+2025-07-21 20:42:48 - Experience found: 3 items
+2025-07-21 20:42:48 - GPA found: 3.75
+2025-07-21 20:42:48 - Generating summary using Gemini Pro...
+2025-07-21 20:42:49 - Error generating summary: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-07-21 20:42:49 - Resume parsing completed. Score: 40.0%
+2025-07-21 20:42:49 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e35c33eabb_parsed.json
+2025-07-21 20:42:49 - Updating application 12 in database...
+2025-07-21 20:42:49 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e35c33eabb_parsed.json -> Uploads/parsed/sample_687e35c33eabb_parsed.json
+2025-07-21 20:42:49 - Attempting database connection...
+2025-07-21 20:42:49 - Database connection successful
+2025-07-21 20:42:49 - Database update successful with relative path: Uploads/parsed/sample_687e35c33eabb_parsed.json
+2025-07-21 20:42:49 - Database updated successfully
+2025-07-21 20:42:49 - Final matching score: 40.0%
+2025-07-21 20:42:49 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 20:53:58 - === PYTHON SCRIPT STARTED ===
+2025-07-21 20:53:58 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\CS134-2P SoftEng_ETrabaho_687e3861b8499.pdf', '13']
+2025-07-21 20:53:58 - === MAIN FUNCTION STARTED ===
+2025-07-21 20:53:58 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\CS134-2P SoftEng_ETrabaho_687e3861b8499.pdf
+2025-07-21 20:53:58 - Application ID: 13
+2025-07-21 20:53:58 - Getting job requirements for application ID: 13
+2025-07-21 20:53:58 - Attempting database connection...
+2025-07-21 20:53:58 - Database connection successful
+2025-07-21 20:53:58 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 20:53:58 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 20:53:58 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 20:53:58 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\CS134-2P SoftEng_ETrabaho_687e3861b8499.pdf
+2025-07-21 20:54:06 - Text extraction successful, length: 86173
+2025-07-21 20:54:06 - Text cleaned, final length: 81292
+2025-07-21 20:54:06 - Skills found: ['PHP', 'JavaScript', 'MySQL']
+2025-07-21 20:54:06 - Score calculated: 60.0% (3/5 skills matched)
+2025-07-21 20:54:06 - Attempting to extract name using spaCy...
+2025-07-21 20:54:09 - Name extracted: Lim
+2025-07-21 20:54:09 - Education found: ['for the Degree of Bachelor of Science', '○ master.php: Acts as the main layout template or "master page" for the entire', 'master.php.']
+2025-07-21 20:54:09 - Experience found: 70 items
+2025-07-21 20:54:09 - No GPA found
+2025-07-21 20:54:09 - Generating summary using Gemini Pro...
+2025-07-21 20:54:11 - Error generating summary: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-07-21 20:54:11 - Resume parsing completed. Score: 60.0%
+2025-07-21 20:54:11 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\CS134-2P SoftEng_ETrabaho_687e3861b8499_parsed.json
+2025-07-21 20:54:11 - Updating application 13 in database...
+2025-07-21 20:54:11 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\CS134-2P SoftEng_ETrabaho_687e3861b8499_parsed.json -> Uploads/parsed/CS134-2P SoftEng_ETrabaho_687e3861b8499_parsed.json
+2025-07-21 20:54:11 - Attempting database connection...
+2025-07-21 20:54:11 - Database connection successful
+2025-07-21 20:54:11 - Database update successful with relative path: Uploads/parsed/CS134-2P SoftEng_ETrabaho_687e3861b8499_parsed.json
+2025-07-21 20:54:11 - Database updated successfully
+2025-07-21 20:54:11 - Final matching score: 60.0%
+2025-07-21 20:54:11 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 21:02:01 - === PYTHON SCRIPT STARTED ===
+2025-07-21 21:02:01 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\sample_687e3a44d4c7f.pdf', '14']
+2025-07-21 21:02:01 - === MAIN FUNCTION STARTED ===
+2025-07-21 21:02:01 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e3a44d4c7f.pdf
+2025-07-21 21:02:01 - Application ID: 14
+2025-07-21 21:02:01 - Getting job requirements for application ID: 14
+2025-07-21 21:02:01 - Attempting database connection...
+2025-07-21 21:02:01 - Database connection successful
+2025-07-21 21:02:01 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 21:02:01 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 21:02:01 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 21:02:01 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e3a44d4c7f.pdf
+2025-07-21 21:02:01 - Text extraction successful, length: 2273
+2025-07-21 21:02:01 - Text cleaned, final length: 2176
+2025-07-21 21:02:01 - Skills found: ['PHP', 'MySQL']
+2025-07-21 21:02:01 - Score calculated: 40.0% (2/5 skills matched)
+2025-07-21 21:02:01 - Attempting to extract name using spaCy...
+2025-07-21 21:02:02 - Name extracted: Cindy Lou
+2025-07-21 21:02:02 - Education found: ['B.S. in Computer Science, Expected May 2010']
+2025-07-21 21:02:02 - Experience found: 3 items
+2025-07-21 21:02:02 - GPA found: 3.75
+2025-07-21 21:02:06 - Resume parsing completed. Score: 40.0%
+2025-07-21 21:02:06 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e3a44d4c7f_parsed.json
+2025-07-21 21:02:06 - Updating application 14 in database...
+2025-07-21 21:02:06 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e3a44d4c7f_parsed.json -> Uploads/parsed/sample_687e3a44d4c7f_parsed.json
+2025-07-21 21:02:06 - Attempting database connection...
+2025-07-21 21:02:06 - Database connection successful
+2025-07-21 21:02:06 - Database update successful with relative path: Uploads/parsed/sample_687e3a44d4c7f_parsed.json
+2025-07-21 21:02:06 - Database updated successfully
+2025-07-21 21:02:06 - Final matching score: 40.0%
+2025-07-21 21:02:06 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 21:22:06 - === PYTHON SCRIPT STARTED ===
+2025-07-21 21:22:06 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\Graphic Designer Resume Example_687e3ef9526c8.pdf', '15']
+2025-07-21 21:22:06 - === MAIN FUNCTION STARTED ===
+2025-07-21 21:22:06 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\Graphic Designer Resume Example_687e3ef9526c8.pdf
+2025-07-21 21:22:06 - Application ID: 15
+2025-07-21 21:22:06 - Getting job requirements for application ID: 15
+2025-07-21 21:22:06 - Attempting database connection...
+2025-07-21 21:22:06 - Database connection successful
+2025-07-21 21:22:06 - Job requirements found - Skills: 6, Education: 1
+2025-07-21 21:22:06 - Job skills required: ['Adobe Photoshop', 'Illustrator', 'Figma', 'Creativity', 'Color Theory', 'Typography']
+2025-07-21 21:22:06 - Job education required: ["Bachelor's Degree in Fine Arts"]
+2025-07-21 21:22:06 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\Graphic Designer Resume Example_687e3ef9526c8.pdf
+2025-07-21 21:22:06 - Text extraction successful, length: 2238
+2025-07-21 21:22:06 - Text cleaned, final length: 2143
+2025-07-21 21:22:06 - Skills found: ['Illustrator']
+2025-07-21 21:22:06 - Score calculated: 16.666666666666664% (1/6 skills matched)
+2025-07-21 21:22:06 - Attempting to extract name using spaCy...
+2025-07-21 21:22:07 - Name extracted: Graphic Arts
+2025-07-21 21:22:07 - Education found: []
+2025-07-21 21:22:07 - Experience found: 0 items
+2025-07-21 21:22:07 - No GPA found
+2025-07-21 21:22:12 - Resume parsing completed. Score: 16.67%
+2025-07-21 21:22:12 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\Graphic Designer Resume Example_687e3ef9526c8_parsed.json
+2025-07-21 21:22:12 - Updating application 15 in database...
+2025-07-21 21:22:12 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\Graphic Designer Resume Example_687e3ef9526c8_parsed.json -> Uploads/parsed/Graphic Designer Resume Example_687e3ef9526c8_parsed.json
+2025-07-21 21:22:12 - Attempting database connection...
+2025-07-21 21:22:12 - Database connection successful
+2025-07-21 21:22:12 - Database update successful with relative path: Uploads/parsed/Graphic Designer Resume Example_687e3ef9526c8_parsed.json
+2025-07-21 21:22:12 - Database updated successfully
+2025-07-21 21:22:12 - Final matching score: 16.67%
+2025-07-21 21:22:12 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 21:24:34 - === PYTHON SCRIPT STARTED ===
+2025-07-21 21:24:34 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\graphic-designer-resume-example_687e3f8272072.pdf', '16']
+2025-07-21 21:24:34 - === MAIN FUNCTION STARTED ===
+2025-07-21 21:24:34 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e3f8272072.pdf
+2025-07-21 21:24:34 - Application ID: 16
+2025-07-21 21:24:34 - Getting job requirements for application ID: 16
+2025-07-21 21:24:34 - Attempting database connection...
+2025-07-21 21:24:35 - Database connection successful
+2025-07-21 21:24:35 - Job requirements found - Skills: 6, Education: 1
+2025-07-21 21:24:35 - Job skills required: ['Adobe Photoshop', 'Illustrator', 'Figma', 'Creativity', 'Color Theory', 'Typography']
+2025-07-21 21:24:35 - Job education required: ["Bachelor's Degree in Fine Arts"]
+2025-07-21 21:24:35 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e3f8272072.pdf
+2025-07-21 21:24:35 - Text extraction successful, length: 2202
+2025-07-21 21:24:35 - Text cleaned, final length: 2153
+2025-07-21 21:24:35 - Skills found: ['Adobe Photoshop', 'Illustrator']
+2025-07-21 21:24:35 - Score calculated: 33.33333333333333% (2/6 skills matched)
+2025-07-21 21:24:35 - Attempting to extract name using spaCy...
+2025-07-21 21:24:37 - Name extracted: Austin
+2025-07-21 21:24:37 - Education found: []
+2025-07-21 21:24:37 - Experience found: 4 items
+2025-07-21 21:24:37 - No GPA found
+2025-07-21 21:24:42 - Resume parsing completed. Score: 33.33%
+2025-07-21 21:24:42 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e3f8272072_parsed.json
+2025-07-21 21:24:42 - Updating application 16 in database...
+2025-07-21 21:24:42 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e3f8272072_parsed.json -> Uploads/parsed/graphic-designer-resume-example_687e3f8272072_parsed.json
+2025-07-21 21:24:42 - Attempting database connection...
+2025-07-21 21:24:42 - Database connection successful
+2025-07-21 21:24:42 - Database update successful with relative path: Uploads/parsed/graphic-designer-resume-example_687e3f8272072_parsed.json
+2025-07-21 21:24:42 - Database updated successfully
+2025-07-21 21:24:42 - Final matching score: 33.33%
+2025-07-21 21:24:42 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 21:33:53 - === PYTHON SCRIPT STARTED ===
+2025-07-21 21:33:53 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\graphic-designer-resume-example_687e41bc5e151.pdf', '17']
+2025-07-21 21:33:53 - === MAIN FUNCTION STARTED ===
+2025-07-21 21:33:53 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e41bc5e151.pdf
+2025-07-21 21:33:53 - Application ID: 17
+2025-07-21 21:33:53 - Getting job requirements for application ID: 17
+2025-07-21 21:33:53 - Attempting database connection...
+2025-07-21 21:33:53 - Database connection successful
+2025-07-21 21:33:53 - Job requirements found - Skills: 6, Education: 1
+2025-07-21 21:33:53 - Job skills required: ['Adobe Photoshop', 'Illustrator', 'Figma', 'Creativity', 'Color Theory', 'Typography']
+2025-07-21 21:33:53 - Job education required: ["Bachelor's Degree in Fine Arts"]
+2025-07-21 21:33:53 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e41bc5e151.pdf
+2025-07-21 21:33:53 - Text extraction successful, length: 2202
+2025-07-21 21:33:53 - Text cleaned, final length: 2153
+2025-07-21 21:33:53 - Skills found: ['Adobe Photoshop', 'Illustrator']
+2025-07-21 21:33:53 - Score calculated: 33.33333333333333% (2/6 skills matched)
+2025-07-21 21:33:53 - Attempting to extract name using spaCy NER...
+2025-07-21 21:33:54 - Name extracted using spaCy: Austin
+2025-07-21 21:33:54 - Education found: []
+2025-07-21 21:33:54 - Experience found: 4 items
+2025-07-21 21:33:54 - No GPA found
+2025-07-21 21:33:58 - Resume parsing completed. Score: 33.33%
+2025-07-21 21:33:58 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e41bc5e151_parsed.json
+2025-07-21 21:33:58 - Updating application 17 in database...
+2025-07-21 21:33:58 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e41bc5e151_parsed.json -> Uploads/parsed/graphic-designer-resume-example_687e41bc5e151_parsed.json
+2025-07-21 21:33:58 - Attempting database connection...
+2025-07-21 21:33:58 - Database connection successful
+2025-07-21 21:33:58 - Database update successful with relative path: Uploads/parsed/graphic-designer-resume-example_687e41bc5e151_parsed.json
+2025-07-21 21:33:58 - Database updated successfully
+2025-07-21 21:33:58 - Final matching score: 33.33%
+2025-07-21 21:33:58 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 21:39:07 - === PYTHON SCRIPT STARTED ===
+2025-07-21 21:39:07 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\graphic-designer-resume-example_687e42f76b148.pdf', '18']
+2025-07-21 21:39:07 - === MAIN FUNCTION STARTED ===
+2025-07-21 21:39:07 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e42f76b148.pdf
+2025-07-21 21:39:07 - Application ID: 18
+2025-07-21 21:39:07 - Getting job requirements for application ID: 18
+2025-07-21 21:39:07 - Attempting database connection...
+2025-07-21 21:39:07 - Database connection successful
+2025-07-21 21:39:07 - Job requirements found - Skills: 6, Education: 1
+2025-07-21 21:39:07 - Job skills required: ['Adobe Photoshop', 'Illustrator', 'Figma', 'Creativity', 'Color Theory', 'Typography']
+2025-07-21 21:39:07 - Job education required: ["Bachelor's Degree in Fine Arts"]
+2025-07-21 21:39:07 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e42f76b148.pdf
+2025-07-21 21:39:08 - Text extraction successful, length: 2202
+2025-07-21 21:39:08 - Text cleaned, final length: 2153
+2025-07-21 21:39:08 - Skills found: ['Adobe Photoshop', 'Illustrator']
+2025-07-21 21:39:08 - Score calculated: 33.33333333333333% (2/6 skills matched)
+2025-07-21 21:39:10 - Education found: []
+2025-07-21 21:39:10 - Experience found: 4 items
+2025-07-21 21:39:10 - No GPA found
+2025-07-21 21:39:17 - Resume parsing completed. Score: 33.33%
+2025-07-21 21:39:17 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e42f76b148_parsed.json
+2025-07-21 21:39:17 - Updating application 18 in database...
+2025-07-21 21:39:17 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e42f76b148_parsed.json -> Uploads/parsed/graphic-designer-resume-example_687e42f76b148_parsed.json
+2025-07-21 21:39:17 - Attempting database connection...
+2025-07-21 21:39:17 - Database connection successful
+2025-07-21 21:39:17 - Database update successful with relative path: Uploads/parsed/graphic-designer-resume-example_687e42f76b148_parsed.json
+2025-07-21 21:39:17 - Database updated successfully
+2025-07-21 21:39:17 - Final matching score: 33.33%
+2025-07-21 21:39:17 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 21:49:59 - === PYTHON SCRIPT STARTED ===
+2025-07-21 21:49:59 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\graphic-designer-resume-example_687e458385383.pdf', '19']
+2025-07-21 21:49:59 - === MAIN FUNCTION STARTED ===
+2025-07-21 21:49:59 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e458385383.pdf
+2025-07-21 21:49:59 - Application ID: 19
+2025-07-21 21:49:59 - Getting job requirements for application ID: 19
+2025-07-21 21:49:59 - Attempting database connection...
+2025-07-21 21:49:59 - Database connection successful
+2025-07-21 21:49:59 - Job requirements found - Skills: 6, Education: 1
+2025-07-21 21:49:59 - Job skills required: ['Adobe Photoshop', 'Illustrator', 'Figma', 'Creativity', 'Color Theory', 'Typography']
+2025-07-21 21:49:59 - Job education required: ["Bachelor's Degree in Fine Arts"]
+2025-07-21 21:49:59 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e458385383.pdf
+2025-07-21 21:50:00 - Text extraction successful, length: 2202
+2025-07-21 21:50:00 - Text cleaned, final length: 2153
+2025-07-21 21:50:00 - FATAL ERROR: extract_skills() takes 1 positional argument but 2 were given
+2025-07-21 21:51:57 - === PYTHON SCRIPT STARTED ===
+2025-07-21 21:51:57 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\graphic-designer-resume-example_687e45f8ba25f.pdf', '20']
+2025-07-21 21:51:57 - === MAIN FUNCTION STARTED ===
+2025-07-21 21:51:57 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e45f8ba25f.pdf
+2025-07-21 21:51:57 - Application ID: 20
+2025-07-21 21:51:57 - Getting job requirements for application ID: 20
+2025-07-21 21:51:57 - Attempting database connection...
+2025-07-21 21:51:57 - Database connection successful
+2025-07-21 21:51:57 - Job requirements found - Skills: 6, Education: 1
+2025-07-21 21:51:57 - Job skills required: ['Adobe Photoshop', 'Illustrator', 'Figma', 'Creativity', 'Color Theory', 'Typography']
+2025-07-21 21:51:57 - Job education required: ["Bachelor's Degree in Fine Arts"]
+2025-07-21 21:51:57 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e45f8ba25f.pdf
+2025-07-21 21:51:57 - Text extraction successful, length: 2202
+2025-07-21 21:51:57 - Text cleaned, final length: 2153
+2025-07-21 21:52:05 - Score calculated: 450.0% (27/6 skills matched)
+2025-07-21 21:52:06 - Education found: []
+2025-07-21 21:52:06 - Experience found: 4 items
+2025-07-21 21:52:06 - No GPA found
+2025-07-21 21:52:12 - Resume parsing completed. Score: 450.0%
+2025-07-21 21:52:12 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e45f8ba25f_parsed.json
+2025-07-21 21:52:12 - Updating application 20 in database...
+2025-07-21 21:52:12 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e45f8ba25f_parsed.json -> Uploads/parsed/graphic-designer-resume-example_687e45f8ba25f_parsed.json
+2025-07-21 21:52:12 - Attempting database connection...
+2025-07-21 21:52:12 - Database connection successful
+2025-07-21 21:52:12 - Database update successful with relative path: Uploads/parsed/graphic-designer-resume-example_687e45f8ba25f_parsed.json
+2025-07-21 21:52:12 - Database updated successfully
+2025-07-21 21:52:12 - Final matching score: 450.0%
+2025-07-21 21:52:12 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 21:58:19 - === PYTHON SCRIPT STARTED ===
+2025-07-21 21:58:19 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\graphic-designer-resume-example_687e4776c4849.pdf', '21']
+2025-07-21 21:58:19 - === MAIN FUNCTION STARTED ===
+2025-07-21 21:58:19 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e4776c4849.pdf
+2025-07-21 21:58:19 - Application ID: 21
+2025-07-21 21:58:19 - Getting job requirements for application ID: 21
+2025-07-21 21:58:19 - Attempting database connection...
+2025-07-21 21:58:19 - Database connection successful
+2025-07-21 21:58:19 - Job requirements found - Skills: 6, Education: 1
+2025-07-21 21:58:19 - Job skills required: ['Adobe Photoshop', 'Illustrator', 'Figma', 'Creativity', 'Color Theory', 'Typography']
+2025-07-21 21:58:19 - Job education required: ["Bachelor's Degree in Fine Arts"]
+2025-07-21 21:58:19 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e4776c4849.pdf
+2025-07-21 21:58:19 - Text extraction successful, length: 2202
+2025-07-21 21:58:19 - Text cleaned, final length: 2153
+2025-07-21 21:58:27 - FATAL ERROR: name 'calculate_score' is not defined
+2025-07-21 21:59:11 - === PYTHON SCRIPT STARTED ===
+2025-07-21 21:59:11 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\graphic-designer-resume-example_687e47ab10802.pdf', '22']
+2025-07-21 21:59:11 - === MAIN FUNCTION STARTED ===
+2025-07-21 21:59:11 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e47ab10802.pdf
+2025-07-21 21:59:11 - Application ID: 22
+2025-07-21 21:59:11 - Getting job requirements for application ID: 22
+2025-07-21 21:59:11 - Attempting database connection...
+2025-07-21 21:59:11 - Database connection successful
+2025-07-21 21:59:11 - Job requirements found - Skills: 6, Education: 1
+2025-07-21 21:59:11 - Job skills required: ['Adobe Photoshop', 'Illustrator', 'Figma', 'Creativity', 'Color Theory', 'Typography']
+2025-07-21 21:59:11 - Job education required: ["Bachelor's Degree in Fine Arts"]
+2025-07-21 21:59:11 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e47ab10802.pdf
+2025-07-21 21:59:11 - Text extraction successful, length: 2202
+2025-07-21 21:59:11 - Text cleaned, final length: 2153
+2025-07-21 21:59:18 - Score calculated: 33.33333333333333% (2/6 skills matched): ['Adobe Photoshop', 'Illustrator']
+2025-07-21 21:59:20 - Education found: []
+2025-07-21 21:59:20 - Experience found: 4 items
+2025-07-21 21:59:20 - No GPA found
+2025-07-21 21:59:26 - Resume parsing completed. Score: 33.33%
+2025-07-21 21:59:26 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e47ab10802_parsed.json
+2025-07-21 21:59:26 - Updating application 22 in database...
+2025-07-21 21:59:26 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e47ab10802_parsed.json -> Uploads/parsed/graphic-designer-resume-example_687e47ab10802_parsed.json
+2025-07-21 21:59:26 - Attempting database connection...
+2025-07-21 21:59:26 - Database connection successful
+2025-07-21 21:59:26 - Database update successful with relative path: Uploads/parsed/graphic-designer-resume-example_687e47ab10802_parsed.json
+2025-07-21 21:59:26 - Database updated successfully
+2025-07-21 21:59:26 - Final matching score: 33.33%
+2025-07-21 21:59:26 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 22:05:43 - === PYTHON SCRIPT STARTED ===
+2025-07-21 22:05:43 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\graphic-designer-resume-example_687e49331258b.pdf', '23']
+2025-07-21 22:05:43 - === MAIN FUNCTION STARTED ===
+2025-07-21 22:05:43 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e49331258b.pdf
+2025-07-21 22:05:43 - Application ID: 23
+2025-07-21 22:05:43 - Getting job requirements for application ID: 23
+2025-07-21 22:05:43 - Attempting database connection...
+2025-07-21 22:05:43 - Database connection successful
+2025-07-21 22:05:43 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 22:05:43 - Job skills required: ['Adobe Photoshop', 'Illustrator', 'Figma', 'Creativity', 'Color Theory']
+2025-07-21 22:05:43 - Job education required: ["Bachelor's Degree in Fine Arts", 'B.F.A.']
+2025-07-21 22:05:43 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\graphic-designer-resume-example_687e49331258b.pdf
+2025-07-21 22:05:43 - Text extraction successful, length: 2202
+2025-07-21 22:05:43 - Text cleaned, final length: 2153
+2025-07-21 22:05:54 - Score calculated: 40.0% (2/5 skills matched): ['Adobe Photoshop', 'Illustrator']
+2025-07-21 22:05:55 - Education found: ['B.F.A.']
+2025-07-21 22:05:55 - Experience found: 4 items
+2025-07-21 22:05:55 - No GPA found
+2025-07-21 22:06:01 - Resume parsing completed. Score: 40.0%
+2025-07-21 22:06:01 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e49331258b_parsed.json
+2025-07-21 22:06:01 - Updating application 23 in database...
+2025-07-21 22:06:01 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\graphic-designer-resume-example_687e49331258b_parsed.json -> Uploads/parsed/graphic-designer-resume-example_687e49331258b_parsed.json
+2025-07-21 22:06:01 - Attempting database connection...
+2025-07-21 22:06:01 - Database connection successful
+2025-07-21 22:06:01 - Database update successful with relative path: Uploads/parsed/graphic-designer-resume-example_687e49331258b_parsed.json
+2025-07-21 22:06:01 - Database updated successfully
+2025-07-21 22:06:01 - Final matching score: 40.0%
+2025-07-21 22:06:01 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 22:16:27 - === PYTHON SCRIPT STARTED ===
+2025-07-21 22:16:27 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\Sample-Resume-Car-Sales_687e4bb75a16c.pdf', '24']
+2025-07-21 22:16:27 - === MAIN FUNCTION STARTED ===
+2025-07-21 22:16:27 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\Sample-Resume-Car-Sales_687e4bb75a16c.pdf
+2025-07-21 22:16:27 - Application ID: 24
+2025-07-21 22:16:27 - Getting job requirements for application ID: 24
+2025-07-21 22:16:27 - Attempting database connection...
+2025-07-21 22:16:27 - Database connection successful
+2025-07-21 22:16:27 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 22:16:27 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 22:16:27 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 22:16:27 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\Sample-Resume-Car-Sales_687e4bb75a16c.pdf
+2025-07-21 22:16:27 - Text extraction successful, length: 1090
+2025-07-21 22:16:27 - Text cleaned, final length: 1074
+2025-07-21 22:16:29 - Score calculated: 0.0% (0/5 skills matched): []
+2025-07-21 22:16:31 - Education found: []
+2025-07-21 22:16:31 - Experience found: 2 items
+2025-07-21 22:16:31 - No GPA found
+2025-07-21 22:16:37 - Resume parsing completed. Score: 0.0%
+2025-07-21 22:16:37 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\Sample-Resume-Car-Sales_687e4bb75a16c_parsed.json
+2025-07-21 22:16:37 - Updating application 24 in database...
+2025-07-21 22:16:37 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\Sample-Resume-Car-Sales_687e4bb75a16c_parsed.json -> Uploads/parsed/Sample-Resume-Car-Sales_687e4bb75a16c_parsed.json
+2025-07-21 22:16:37 - Attempting database connection...
+2025-07-21 22:16:37 - Database connection successful
+2025-07-21 22:16:37 - Database update successful with relative path: Uploads/parsed/Sample-Resume-Car-Sales_687e4bb75a16c_parsed.json
+2025-07-21 22:16:37 - Database updated successfully
+2025-07-21 22:16:37 - Final matching score: 0.0%
+2025-07-21 22:16:37 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===
+2025-07-21 22:19:29 - === PYTHON SCRIPT STARTED ===
+2025-07-21 22:19:29 - Script called with arguments: ['D:\\xamp\\htdocs\\hireswift_\\Python\\NLP.py', 'D:\\xamp\\htdocs\\hireswift_\\Uploads\\sample_687e4c6d1fca7.pdf', '25']
+2025-07-21 22:19:29 - === MAIN FUNCTION STARTED ===
+2025-07-21 22:19:29 - Processing PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e4c6d1fca7.pdf
+2025-07-21 22:19:29 - Application ID: 25
+2025-07-21 22:19:29 - Getting job requirements for application ID: 25
+2025-07-21 22:19:29 - Attempting database connection...
+2025-07-21 22:19:29 - Database connection successful
+2025-07-21 22:19:29 - Job requirements found - Skills: 5, Education: 2
+2025-07-21 22:19:29 - Job skills required: ['PHP', 'JavaScript', 'MySQL', 'Laravel', 'Vue.js']
+2025-07-21 22:19:29 - Job education required: ["Bachelor's Degree in Computer Science", "Master's Degree preferred"]
+2025-07-21 22:19:29 - Extracting text from PDF: D:\xamp\htdocs\hireswift_\Uploads\sample_687e4c6d1fca7.pdf
+2025-07-21 22:19:29 - Text extraction successful, length: 2273
+2025-07-21 22:19:29 - Text cleaned, final length: 2176
+2025-07-21 22:19:36 - Score calculated: 60.0% (3/5 skills matched): ['PHP', 'JavaScript', 'MySQL']
+2025-07-21 22:19:37 - Education found: ['B.S. in Computer Science, Expected May 2010']
+2025-07-21 22:19:37 - Experience found: 3 items
+2025-07-21 22:19:37 - GPA found: 3.75
+2025-07-21 22:19:43 - Resume parsing completed. Score: 60.0%
+2025-07-21 22:19:43 - Parsed data saved to: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e4c6d1fca7_parsed.json
+2025-07-21 22:19:43 - Updating application 25 in database...
+2025-07-21 22:19:43 - Converted absolute path to relative: D:\xamp\htdocs\hireswift_\Uploads\parsed\sample_687e4c6d1fca7_parsed.json -> Uploads/parsed/sample_687e4c6d1fca7_parsed.json
+2025-07-21 22:19:43 - Attempting database connection...
+2025-07-21 22:19:43 - Database connection successful
+2025-07-21 22:19:43 - Database update successful with relative path: Uploads/parsed/sample_687e4c6d1fca7_parsed.json
+2025-07-21 22:19:43 - Database updated successfully
+2025-07-21 22:19:43 - Final matching score: 60.0%
+2025-07-21 22:19:43 - === PYTHON SCRIPT COMPLETED SUCCESSFULLY ===

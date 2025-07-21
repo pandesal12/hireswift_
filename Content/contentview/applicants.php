@@ -1,9 +1,9 @@
 <?php
 require_once '../Query/connect.php';
-
+$title = "Hireswift - Applicants";
 // Get user's jobs for filtering
 $user_id = $_SESSION['id'];
-$jobsQuery = "SELECT id, title FROM jobs WHERE created_by = 8 ORDER BY title ASC";
+$jobsQuery = "SELECT id, title FROM jobs WHERE created_by = $user_id ORDER BY title ASC";
 $jobsResult = mysqli_query($con, $jobsQuery);
 $jobs = [];
 while ($row = mysqli_fetch_assoc($jobsResult)) {
@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_assoc($applicationsResult)) {
 ?>
 
 <link rel="stylesheet" href="CSS/applicants.css">
-
+<!-- <title> TEST </title> -->
 <div class="applicants-container">
     <div class="page-header">
         <div>
@@ -95,6 +95,10 @@ while ($row = mysqli_fetch_assoc($applicationsResult)) {
                             <button class="btn btn-primary btn-sm" onclick="updateStatus(<?php echo $application['id']; ?>)">
                                 <i class="fas fa-edit"></i>
                                 Update Status
+                            </button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteApplication(<?php echo $application['id']; ?>)">
+                                <i class="fas fa-trash"></i>
+                                Delete
                             </button>
                         </div>
                     </td>

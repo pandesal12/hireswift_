@@ -3,7 +3,7 @@
 if (!isset($_SESSION['name'])) {
     header('location: ../index.php');
 }
-
+$title = "Hireswift - Personal Settings";
 // Get user's company from the link table
 require_once '../Query/connect.php';
 $user_id = $_SESSION['id'];

@@ -5,12 +5,9 @@ require_once '../Query/get_jobs.php';
 $user_id = $_SESSION['id'] ?? null;
 $jobs = getAllJobs($user_id);
 
-// Handle success/error messages
 $success_message = isset($_GET['success']) ? $_GET['success'] : '';
 $error_message = isset($_GET['error']) ? $_GET['error'] : '';
 
-// Debug information (remove in production)
-// echo "<!-- Debug: User ID: " . htmlspecialchars($user_id) . ", Jobs count: " . count($jobs) . " -->";
 ?>
 <link rel="stylesheet" href="CSS/manage-jobs.css">
 <div class="page-header">
@@ -132,6 +129,14 @@ $error_message = isset($_GET['error']) ? $_GET['error'] : '';
                         <option value="Part Time">Part Time</option>
                         <option value="Contract">Contract</option>
                         <option value="Internship">Internship</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="jobStatus">Status</label>
+                    <select class="form-control" id="jobStatus" name="job_status" required>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
                     </select>
                 </div>
 

@@ -2,21 +2,13 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
+$title = "Hireswift - Dashboard";
 require_once '../Query/DashboardData.php';
 
 // Get current user from session (adjust based on your authentication system)
-$currentUser = $_SESSION['email'] ?? $_SESSION['user_id'] ?? null;
-
-// If no user is logged in, redirect or handle appropriately
-// if (!$currentUser) {
-//     // Redirect to login page or handle unauthenticated user
-//     header('Location: ../login.php');
-//     exit();
-// }
 
 // Initialize dashboard data with current user
-$dashboardData = new DashboardData($currentUser);
+$dashboardData = new DashboardData($_SESSION['id']);
 
 // Get real data from database (now filtered by user)
 $totalApplications = $dashboardData->getTotalApplications();
@@ -63,7 +55,6 @@ $trendData = $completeTrendData;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applications Dashboard</title>
     <link rel="stylesheet" href="./CSS/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>

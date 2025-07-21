@@ -1,0 +1,17 @@
+2025-06-09 21:58:13 - File: sample_68473cd597a8d.pdf, Processing time: 0.06s
+2025-06-09 22:01:48 - File: sample_68473dabe3999.pdf, Processing time: 0.67s
+2025-06-09 22:05:17 - File: sample_68473e7d19d9c.pdf, Processing time: 0.29s
+2025-06-09 22:06:17 - File: sample_68473eb5c201a.pdf, Processing time: 4.12s
+2025-06-09 22:08:25 - File: sample_68473f34e27c2.pdf, Processing time: 4.29s
+2025-06-09 22:12:36 - File: sample_6847402252040.pdf, Processing time: 18.35s
+2025-07-10 16:40:03 - File: Letter-of-Intent-Specialization_686fd0c3e9515.pdf, Processing time: 0.04s
+2025-07-10 16:44:10 - File: SEROTE Final Resume_686fd1ba8e167.pdf, Processing time: 0.03s
+2025-07-10 16:45:45 - File: SEROTE Final Resume_686fd2199639a.pdf, Processing time: 0.12s
+2025-07-10 16:47:25 - File: SEROTE Final Resume_686fd27ddab7c.pdf, Processing time: 0.07s
+2025-07-10 16:48:55 - File: SEROTE Final Resume_686fd2d78815c.pdf, Processing time: 0.06s
+2025-07-10 16:50:28 - File: SEROTE Final Resume_686fd33403185.pdf, Processing time: 0.06s
+2025-07-10 16:51:35 - File: SEROTE Final Resume_686fd3771f4e8.pdf, Processing time: 0.05s
+2025-07-10 16:53:39 - File: SEROTE Final Resume_686fd3f36634e.pdf, Processing time: 0.02s
+2025-07-10 17:01:04 - File: SEROTE Final Resume_686fd5afeae1c.pdf, Processing time: 0.05s
+2025-07-10 18:19:23 - File: SEROTE Final Resume_686fe80b0c3ac.pdf, Processing time: 0.07s
+2025-07-18 20:36:11 - File: Sample resume_687a941b2842c.pdf, Processing time: 0.03s

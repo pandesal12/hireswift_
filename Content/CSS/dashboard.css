@@ -217,9 +217,14 @@
     color: #155724;
 }
 
+.status-reviewing {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
 .status-pending {
     background-color: #fff3cd;
-    color: #856404;
+    color: #ffbf00;
 }
 
 .status-rejected {
@@ -230,6 +235,11 @@
 .status-interviewed {
     background-color: #d1ecf1;
     color: #0c5460;
+}
+
+.status-accepted {
+    background: #d1e7dd;
+    color: #0f5132;
 }
 
 /* === No Data Message === */

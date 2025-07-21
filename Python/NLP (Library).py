@@ -118,45 +118,27 @@ def extract_phone(text):
     match = re.search(r'\+?\d[\d\s\-()]{8,15}', text)
     return match.group(0) if match else None
 
-#V1
-# def extract_name(text):
-#     """Extract name using spaCy NLP"""
-#     try:
-#         log_execution("Attempting to extract name using spaCy...")
-#         nlp = spacy.load('en_core_web_sm')
-#         doc = nlp(text)
-#         for ent in doc.ents:
-#             if ent.label_ == "PERSON":
-#                 log_execution(f"Name extracted: {ent.text}")
-#                 return ent.text
-#         log_execution("No name found using spaCy")
-#         return None
-#     except Exception as e:
-#         log_execution(f"Error in name extraction: {e}")
-#         print(f"Error in name extraction: {e}")
-#         return None
-
-#V2
 def extract_name(text):
-    client = genai.Client()
-    response = client.models.generate_content(
-        model="gemini-2.5-flash", contents=f"Im using this prompt as a function to identify the name and display it, I want you to say the name (Just say the name and nothing else from this text, its only 1 name). This is the extracted resume text: {text}"
-    )
-    return response.text
+    """Extract name using spaCy NLP"""
+    try:
+        log_execution("Attempting to extract name using spaCy...")
+        nlp = spacy.load('en_core_web_sm')
+        doc = nlp(text)
+        for ent in doc.ents:
+            if ent.label_ == "PERSON":
+                log_execution(f"Name extracted: {ent.text}")
+                return ent.text
+        log_execution("No name found using spaCy")
+        return None
+    except Exception as e:
+        log_execution(f"Error in name extraction: {e}")
+        print(f"Error in name extraction: {e}")
+        return None
 
-#V1
-# def extract_skills(text, job_skills=None):
-#     found = [skill for skill in job_skills if skill.lower() in text.lower()]
-#     log_execution(f"Skills found: {found}")
-#     return list(set(found))
-
-def extract_skills(text, job_skills):
-    client = genai.Client()
-    response = client.models.generate_content(
-        model="gemini-2.5-flash", contents=f"""Im using this prompt as a function to identify the skills and display it, 
-        I want you to list all the skills in this manner (disregard the quotation marks) 'Skill1,Skill2,Skill3'. This is the extracted resume text: {text}"""
-    )
-    return response.text.split(',')
+def extract_skills(text, job_skills=None):
+    found = [skill for skill in job_skills if skill.lower() in text.lower()]
+    log_execution(f"Skills found: {found}")
+    return list(set(found))
 
 def extract_education(text, job_education=None):
     """Extract education information based on job requirements"""

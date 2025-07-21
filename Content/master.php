@@ -9,9 +9,10 @@ if (!isset($_SESSION['id'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="../Index/Assets/HIRESWIFT.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title ?? 'Hireswift'; ?></title>
+
     <link rel="stylesheet" href="CSS/master.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -324,7 +325,8 @@ if (!isset($_SESSION['id'])) {
             </header>
 
             <div class="content-area">
-               <?php include($content); ?>
+                <?php include($content); ?>
+                <title><?php echo $title ?? 'Hireswift'; ?></title>
             </div>
         </main>
     </div>
