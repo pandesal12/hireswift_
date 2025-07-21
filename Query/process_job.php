@@ -6,6 +6,20 @@ $response = ['success' => false, 'message' => ''];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
+        // Get user information
+        $user_id = $_SESSION['id'];
+        
+        // Get user's link_id
+        $linkQuery = "SELECT link_id FROM link WHERE user_id = $user_id";
+        $linkResult = mysqli_query($con, $linkQuery);
+        
+        if (mysqli_num_rows($linkResult) === 0) {
+            throw new Exception('No company link found for this user. Please set up your company first.');
+        }
+        
+        $linkData = mysqli_fetch_assoc($linkResult);
+        $link_id = $linkData['link_id'];
+        
         // Sanitize and validate input
         $job_id = isset($_POST['job_id']) ? (int)$_POST['job_id'] : 0;
         $title = mysqli_real_escape_string($con, trim($_POST['job_title']));
@@ -13,8 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $skills = json_decode($_POST['skills'], true) ?: [];
         $education = json_decode($_POST['education'], true) ?: [];
         $description = mysqli_real_escape_string($con, trim($_POST['job_description']));
-        // $created_by = $_SESSION['email'];
-        $created_by = $_SESSION['email'];
+        
         // Validation
         if (empty($title)) {
             throw new Exception('Job title is required');
@@ -47,14 +60,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     education = '$education_json',
                     description = '$description',
                     updated_at = CURRENT_TIMESTAMP
-                    WHERE id = $job_id AND created_by = '$created_by'";
+                    WHERE id = $job_id AND created_by = '$user_id'";
             
             if (mysqli_query($con, $sql)) {
                 if (mysqli_affected_rows($con) > 0) {
                     $response['success'] = true;
                     $response['message'] = 'Job updated successfully';
                 } else {
-                    throw new Exception('Job not found');
+                    throw new Exception('Job not found or no changes made');
                 }
             } else {
                 throw new Exception('Error updating job: ' . mysqli_error($con));
@@ -65,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $check_sql = "SELECT id FROM jobs 
                         WHERE title = '$title' 
                         AND employment_type = '$employment_type' 
-                        AND created_by = '$created_by' 
+                        AND created_by = '$user_id'
                         LIMIT 1";
 
             $check_result = mysqli_query($con, $check_sql);
@@ -74,9 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 throw new Exception('Duplicate job detected. A job with the same title and employment type already exists.');
             }
 
-            // Insert new job
-            $sql = "INSERT INTO jobs (title, employment_type, skills, education, description, created_by) 
-                    VALUES ('$title', '$employment_type', '$skills_json', '$education_json', '$description', '$created_by')";
+            // Insert new job with link_id and user_id
+            $sql = "INSERT INTO jobs (title, employment_type, skills, education, description, created_by, link_id) 
+                    VALUES ('$title', '$employment_type', '$skills_json', '$education_json', '$description', '$user_id', $link_id)";
 
             if (mysqli_query($con, $sql)) {
                 $response['success'] = true;
@@ -89,13 +102,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
     } catch (Exception $e) {
         $response['message'] = $e->getMessage();
+        error_log("Process job error: " . $e->getMessage());
     }
 }
 
 if ($response['success']) {
     header('Location: ../Content/master.php?content=manage-jobs&success=' . urlencode($response['message']));
 } else {
-    header('Location: ..//Content/master.php?content=manage-jobs&error=' . urlencode($response['message']));
+    header('Location: ../Content/master.php?content=manage-jobs&error=' . urlencode($response['message']));
 }
 exit();
 ?>

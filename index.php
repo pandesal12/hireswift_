@@ -195,7 +195,7 @@ if (isset($_GET['show']) && $_GET['show'] === 'register') {
             }
         });
 
-        Auto-hide alerts after 5 seconds
+        // Auto-hide alerts after 5 seconds
         const alerts = document.querySelectorAll('.alert');
         alerts.forEach(alert => {
             setTimeout(() => {

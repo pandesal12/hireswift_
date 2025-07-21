@@ -1,11 +1,16 @@
 <?php
 require_once '../Query/get_jobs.php';
-// Get jobs from database
-$jobs = getAllJobs($_SESSION['email'] ?? null);
+
+// Get jobs from database using user_id instead of email
+$user_id = $_SESSION['id'] ?? null;
+$jobs = getAllJobs($user_id);
 
 // Handle success/error messages
 $success_message = isset($_GET['success']) ? $_GET['success'] : '';
 $error_message = isset($_GET['error']) ? $_GET['error'] : '';
+
+// Debug information (remove in production)
+// echo "<!-- Debug: User ID: " . htmlspecialchars($user_id) . ", Jobs count: " . count($jobs) . " -->";
 ?>
 <link rel="stylesheet" href="CSS/manage-jobs.css">
 <div class="page-header">
@@ -62,14 +67,22 @@ $error_message = isset($_GET['error']) ? $_GET['error'] : '';
                 </td>
                 <td><?php echo htmlspecialchars($job['employment_type']); ?></td>
                 <td>
-                    <?php foreach ($job['skills'] as $skill): ?>
-                        <span class="skill-tag"><?php echo htmlspecialchars($skill); ?></span>
-                    <?php endforeach; ?>
+                    <?php if (!empty($job['skills'])): ?>
+                        <?php foreach ($job['skills'] as $skill): ?>
+                            <span class="skill-tag"><?php echo htmlspecialchars($skill); ?></span>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <span style="color: #6c757d; font-style: italic;">No skills specified</span>
+                    <?php endif; ?>
                 </td>
                 <td>
-                    <?php foreach ($job['education'] as $edu): ?>
-                        <span class="education-tag"><?php echo htmlspecialchars($edu); ?></span>
-                    <?php endforeach; ?>
+                    <?php if (!empty($job['education'])): ?>
+                        <?php foreach ($job['education'] as $edu): ?>
+                            <span class="education-tag"><?php echo htmlspecialchars($edu); ?></span>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <span style="color: #6c757d; font-style: italic;">No education specified</span>
+                    <?php endif; ?>
                 </td>
                 <td><?php echo $job['applicant_count'] ?? 0; ?></td>
                 <td>
@@ -80,10 +93,10 @@ $error_message = isset($_GET['error']) ? $_GET['error'] : '';
                 <td><?php echo date('M j, Y', strtotime($job['created_at'])); ?></td>
                 <td>
                     <div class="actions">
-                        <button class="btn btn-secondary btn-sm" onclick="editJob(<?php echo $job['id']; ?>)">
+                        <button class="btn btn-secondary btn-sm" onclick="editJob(<?php echo $job['id']; ?>)" title="Edit Job">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button class="btn btn-danger btn-sm" onclick="deleteJob(<?php echo $job['id']; ?>)">
+                        <button class="btn btn-danger btn-sm" onclick="deleteJob(<?php echo $job['id']; ?>)" title="Delete Job">
                             <i class="fas fa-trash"></i>
                         </button>
                     </div>

@@ -1,14 +1,14 @@
 <?php
 require_once 'connect.php';
 
-function getAllJobs($email) {
+function getAllJobs($user_id) {
     global $con;
     try {
-        if ($email) {
+        if ($user_id) {
             $sql = "SELECT j.*, 
                     (SELECT COUNT(*) FROM applications a WHERE a.job_id = j.id) as applicant_count
                     FROM jobs j 
-                    WHERE j.created_by = '$email' 
+                    WHERE j.created_by = '$user_id' 
                     ORDER BY j.created_at DESC";
         } else {
             $sql = "SELECT j.*, 
@@ -20,7 +20,7 @@ function getAllJobs($email) {
         $result = mysqli_query($con, $sql);
         
         if (!$result) {
-            // echo "Query failed: " . mysqli_error($con);
+            error_log("SQL Error in getAllJobs: " . mysqli_error($con));
             return [];
         }
         
@@ -39,6 +39,4 @@ function getAllJobs($email) {
         return [];
     }
 }
-
-
 ?>

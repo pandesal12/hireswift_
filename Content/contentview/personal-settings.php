@@ -1,17 +1,26 @@
 <?php
 // Get user data from session or database
-
 if (!isset($_SESSION['name'])) {
-        header('location: ../index.php');
-    }
+    header('location: ../index.php');
+}
 
-    // $name = $_SESSION['name'];
+// Get user's company from the link table
+require_once '../Query/connect.php';
+$user_id = $_SESSION['id'];
+$companyQuery = "SELECT company FROM link WHERE user_id = $user_id";
+$companyResult = mysqli_query($con, $companyQuery);
+$currentCompany = '';
+
+if (mysqli_num_rows($companyResult) > 0) {
+    $companyData = mysqli_fetch_assoc($companyResult);
+    $currentCompany = $companyData['company'];
+}
 
 $user = [
     'name' => $_SESSION['name'],
     'email' => $_SESSION['email'],
     'phone' => $_SESSION['phone'],
-    'company' => $_SESSION['company'] ?? "placeholder company",
+    'company' => $currentCompany,
     'id' => $_SESSION['id'],
 ];
 
@@ -25,182 +34,7 @@ if (isset($parts[1]) && $parts[1] !== '') {
 }
 ?>
 
-<style>
-.settings-container {
-    max-width: 800px;
-}
-
-.settings-card {
-    background: white;
-    border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e9ecef;
-    margin-bottom: 24px;
-}
-
-.profile-header {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid #e9ecef;
-}
-
-.profile-avatar-large {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
-    font-size: 28px;
-}
-
-.profile-info h2 {
-    color: #212529;
-    margin-bottom: 8px;
-    font-size: 24px;
-}
-
-.profile-meta {
-    color: #6c757d;
-    font-size: 14px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #495057;
-}
-
-.form-control {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-    font-size: 14px;
-}
-
-.form-control:focus {
-    outline: none;
-    border-color: #4285f4;
-    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
-}
-
-.form-control:disabled {
-    background-color: #f8f9fa;
-    color: #6c757d;
-}
-
-.btn {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s;
-}
-
-.btn-primary {
-    background: #4285f4;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #3367d6;
-}
-
-.btn-secondary {
-    background: #6c757d;
-    color: white;
-}
-
-.btn-danger {
-    background: #dc3545;
-    color: white;
-}
-
-.section-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #212529;
-    margin-bottom: 20px;
-}
-
-.password-requirements {
-    background: #f8f9fa;
-    border-radius: 6px;
-    padding: 16px;
-    margin-top: 12px;
-}
-
-.password-requirements h4 {
-    font-size: 14px;
-    margin-bottom: 8px;
-    color: #495057;
-}
-
-.password-requirements ul {
-    margin: 0;
-    padding-left: 20px;
-    font-size: 12px;
-    color: #6c757d;
-}
-
-.alert {
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-}
-
-.alert-success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-
-.alert-danger {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-@media (max-width: 768px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .profile-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .settings-card {
-        padding: 20px;
-    }
-}
-</style>
+<link rel="stylesheet" href="CSS/personal-settings.css">
 
 <div class="settings-container">
     <div class="page-header">
@@ -216,6 +50,9 @@ if (isset($parts[1]) && $parts[1] !== '') {
                 <h2><?php echo htmlspecialchars($user['name']); ?></h2>
                 <div class="profile-meta">
                     <div>HireSwift User</div>
+                    <?php if (!empty($user['company'])): ?>
+                    <div style="color: #4285f4; font-weight: 500;"><?php echo htmlspecialchars($user['company']); ?></div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -228,6 +65,13 @@ if (isset($parts[1]) && $parts[1] !== '') {
             Profile updated successfully!
         </div>
         <?php endif; ?>
+
+        <?php if (isset($_GET['error'])): ?>
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-circle"></i>
+            <?php echo htmlspecialchars($_GET['error']); ?>
+        </div>
+        <?php endif; ?>
         
         <form method="POST" action="../Query/update_profile.php" id="profileForm">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($user['id']); ?>">
@@ -235,14 +79,18 @@ if (isset($parts[1]) && $parts[1] !== '') {
             <div class="form-row">
                 <div class="form-group">
                     <label class="form-label" for="fullName">Full Name</label>
-                    <input type="text" class="form-control" id="firstName" name="full_name" 
+                    <input type="text" class="form-control" id="fullName" name="full_name" 
                            value="<?php echo htmlspecialchars($user['name']); ?>" required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" 
-                           value="<?php echo htmlspecialchars($user['email']); ?>" required>
+                    <div class="input-wrapper">
+                        <input type="email" class="form-control" id="email" name="email" 
+                               value="<?php echo htmlspecialchars($user['email']); ?>" required>
+                        <i class="status-icon" id="emailStatusIcon"></i>
+                    </div>
+                    <div class="status-message" id="emailStatusMessage"></div>
                 </div>
             </div>
 
@@ -254,16 +102,19 @@ if (isset($parts[1]) && $parts[1] !== '') {
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="company">Company</label>
-                    <input type="text" class="form-control" id="company" name="company" 
-                           value="<?php echo htmlspecialchars($user['company']); ?>">
+                    <label class="form-label" for="company">Company Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" class="form-control" id="company" name="company" 
+                               value="<?php echo htmlspecialchars($user['company']); ?>" 
+                               placeholder="Enter your company name">
+                        <i class="status-icon" id="companyStatusIcon"></i>
+                    </div>
+                    <div class="status-message" id="companyStatusMessage"></div>
                 </div>
             </div>
 
-            
-
             <div style="display: flex; gap: 12px;">
-                <button type="submit" class="btn btn-primary" name="updateProfile">
+                <button type="submit" class="btn btn-primary" name="updateProfile" id="updateBtn" disabled>
                     <i class="fas fa-save"></i>
                     Update Profile
                 </button>
@@ -287,15 +138,21 @@ if (isset($parts[1]) && $parts[1] !== '') {
         <?php elseif (isset($_GET['password']) && $_GET['password'] == 'error'): ?>
         <div class="alert alert-danger">
             <i class="fas fa-exclamation-circle"></i>
-            Current password is incorrect. Please try again.
+            <?php echo isset($_GET['msg']) ? htmlspecialchars($_GET['msg']) : 'Current password is incorrect. Please try again.'; ?>
         </div>
         <?php endif; ?>
 
         <form method="POST" action="../Query/change_password.php" id="passwordForm">
             <input type="hidden" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
+            <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user['id']); ?>">
+            
             <div class="form-group">
                 <label class="form-label" for="currentPassword">Current Password</label>
-                <input type="password" class="form-control" id="currentPassword" name="current_password" required>
+                <div class="input-wrapper">
+                    <input type="password" class="form-control" id="currentPassword" name="current_password" required>
+                    <i class="status-icon" id="currentPasswordIcon"></i>
+                </div>
+                <div class="status-message" id="currentPasswordMessage"></div>
             </div>
 
             <div class="form-row">
@@ -305,7 +162,11 @@ if (isset($parts[1]) && $parts[1] !== '') {
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="confirmPassword">Confirm New Password</label>
-                    <input type="password" class="form-control" id="confirmPassword" name="confirm_password" required>
+                    <div class="input-wrapper">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirm_password" required>
+                        <i class="status-icon" id="confirmPasswordIcon"></i>
+                    </div>
+                    <div class="status-message" id="confirmPasswordMessage"></div>
                 </div>
             </div>
 
@@ -313,15 +174,12 @@ if (isset($parts[1]) && $parts[1] !== '') {
                 <h4>Password Requirements:</h4>
                 <ul>
                     <li>At least 8 characters long</li>
-                    <li>Contains at least one uppercase letter</li>
-                    <li>Contains at least one lowercase letter</li>
-                    <li>Contains at least one number</li>
-                    <li>Contains at least one special character</li>
+                    <li>Mix of letters, numbers, and symbols</li>
                 </ul>
             </div>
 
             <div style="margin-top: 20px;">
-                <button type="submit" name="changePassword" class="btn btn-primary">
+                <button type="submit" name="changePassword" class="btn btn-primary" id="changePasswordBtn" disabled>
                     <i class="fas fa-key"></i>
                     Change Password
                 </button>
@@ -330,37 +188,4 @@ if (isset($parts[1]) && $parts[1] !== '') {
     </div>
 </div>
 
-<script>
-document.getElementById('passwordForm').addEventListener('submit', function(e) {
-    const newPassword = document.getElementById('newPassword').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-    
-    if (newPassword !== confirmPassword) {
-        e.preventDefault();
-        alert('New password and confirm password do not match.');
-        return;
-    }
-    
-    // Basic password validation
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!passwordRegex.test(newPassword)) {
-        e.preventDefault();
-        alert('Password does not meet the requirements. Please check the password requirements below.');
-        return;
-    }
-});
-
-const fullName = document.getElementById('fullName');
-const email = document.getElementById('email');
-const phone = document.getElementById('phone');
-const company = document.getElementById('company');
-const resetBtn = document.getElementById('resetBtn')
-
-resetbtn.addEventListener('click', function(e){
-    fullName.value = <?php echo htmlspecialchars($user['name']); ?>
-    email.value = <?php echo htmlspecialchars($user['email']); ?>
-    phone.value = <?php echo htmlspecialchars($user['phone']); ?>
-    company.value = <?php echo htmlspecialchars($user['company']); ?>
-})
-
-</script>
+<script src="JS/personal-settings.js"></script>
