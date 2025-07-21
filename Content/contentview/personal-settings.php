@@ -174,7 +174,6 @@ if (isset($parts[1]) && $parts[1] !== '') {
                 <h4>Password Requirements:</h4>
                 <ul>
                     <li>At least 8 characters long</li>
-                    <li>Mix of letters, numbers, and symbols</li>
                 </ul>
             </div>
 

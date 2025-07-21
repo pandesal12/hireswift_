@@ -18,9 +18,10 @@ if (isset($_GET['show']) && $_GET['show'] === 'register') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="Index/Assets/HIRESWIFT.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HireSwift - Smart Resume Analysis</title>
+    <title>HireSwift - Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <link rel="stylesheet" href="Index/style.css">
 </head>
@@ -36,7 +37,7 @@ if (isset($_GET['show']) && $_GET['show'] === 'register') {
         <div class="form-container">
             <!-- Login Form -->
             <form class="auth-form <?php echo !$show_register ? 'active' : ''; ?>" id="login-form" method="POST" action="Query/login.php">
-                <h2 class="form-title">Welcome Back</h2>
+                <h2 class="form-title">Sign In</h2>
                 
                 <?php if ($error_message && !$show_register): ?>
                 <div class="alert alert-error">
