@@ -30,6 +30,99 @@ emailInput.addEventListener("input", handleEmailChange)
 phoneInput.addEventListener("input", handlePhoneChange)
 companyInput.addEventListener("input", handleCompanyChange)
 
+// Copy Forms Link Function
+function copyFormsLink() {
+  const linkInput = document.getElementById("formsLink")
+  const copyBtn = document.getElementById("copyLinkBtn")
+  const copyText = copyBtn.querySelector(".copy-text")
+  const copyIcon = copyBtn.querySelector("i")
+
+  // Select and copy the text
+  linkInput.select()
+  linkInput.setSelectionRange(0, 99999) // For mobile devices
+
+  try {
+    // Try modern clipboard API first
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard
+        .writeText(linkInput.value)
+        .then(() => {
+          showCopySuccess(copyBtn, copyIcon, copyText)
+        })
+        .catch(() => {
+          // Fallback to execCommand
+          fallbackCopy(linkInput, copyBtn, copyIcon, copyText)
+        })
+    } else {
+      // Fallback to execCommand
+      fallbackCopy(linkInput, copyBtn, copyIcon, copyText)
+    }
+  } catch (err) {
+    console.error("Copy failed:", err)
+    showNotification("Failed to copy link. Please copy manually.", "error")
+  }
+}
+
+function fallbackCopy(linkInput, copyBtn, copyIcon, copyText) {
+  try {
+    document.execCommand("copy")
+    showCopySuccess(copyBtn, copyIcon, copyText)
+  } catch (err) {
+    console.error("Fallback copy failed:", err)
+    showNotification("Failed to copy link. Please copy manually.", "error")
+  }
+}
+
+function showCopySuccess(copyBtn, copyIcon, copyText) {
+  // Update button appearance
+  copyBtn.classList.add("copied")
+  copyIcon.className = "fas fa-check"
+  copyText.textContent = "Copied!"
+
+  // Reset button after 2 seconds
+  setTimeout(() => {
+    copyBtn.classList.remove("copied")
+    copyIcon.className = "fas fa-copy"
+    copyText.textContent = "Copy Link"
+  }, 2000)
+
+  // Show success message
+  showNotification("Forms link copied to clipboard!", "success")
+}
+
+// Show notification function
+function showNotification(message, type) {
+  const notification = document.createElement("div")
+  notification.className = `alert alert-${type === "success" ? "success" : "error"}`
+  notification.innerHTML = `
+    <i class="fas fa-${type === "success" ? "check-circle" : "exclamation-circle"}"></i>
+    ${message}
+  `
+  notification.style.opacity = "0"
+  notification.style.transform = "translateY(-10px)"
+
+  // Insert at the top of the settings container
+  const container = document.querySelector(".settings-container")
+  container.insertBefore(notification, container.firstChild)
+
+  // Animate in
+  setTimeout(() => {
+    notification.style.opacity = "1"
+    notification.style.transform = "translateY(0)"
+  }, 10)
+
+  // Auto remove after 3 seconds
+  setTimeout(() => {
+    notification.style.opacity = "0"
+    notification.style.transform = "translateY(-10px)"
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.remove()
+      }
+    }, 300)
+  }, 3000)
+}
+
 function handleEmailChange() {
   const email = emailInput.value.trim()
 
@@ -60,8 +153,19 @@ function handleEmailChange() {
 function handlePhoneChange() {
   const phone = phoneInput.value.trim()
 
-  // Validate phone number format (10 digits)
-  if (phone.length > 0 && !/^[0-9]{10}$/.test(phone)) {
+  // Remove all non-digits
+  let value = phone.replace(/\D/g, "")
+
+  // Limit to 11 digits
+  if (value.length > 11) {
+    value = value.slice(0, 11)
+  }
+
+  // Update the input value
+  phoneInput.value = value
+
+  // Validate phone number format (11 digits)
+  if (value.length > 0 && !/^[0-9]{11}$/.test(value)) {
     phoneInput.className = "form-control invalid"
   } else {
     phoneInput.className = "form-control"
@@ -121,7 +225,7 @@ function checkFormChanges() {
     isCompanyAvailable &&
     currentValues.name.length > 0 &&
     isValidEmail(currentValues.email) &&
-    (currentValues.phone.length === 0 || /^[0-9]{10}$/.test(currentValues.phone))
+    (currentValues.phone.length === 0 || /^[0-9]{11}$/.test(currentValues.phone))
 
   updateBtn.disabled = !hasChanges || !isValid
 }

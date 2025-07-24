@@ -21,8 +21,8 @@ if(isset($_POST['signUp'])){
     }
     
     // Validate phone number (10 digits)
-    if (!preg_match('/^[0-9]{10}$/', $phone)) {
-        header("Location: ../index.php?show=register&error=" . urlencode("Phone number must be exactly 10 digits"));
+    if (!preg_match('/^[0-9]{11}$/', $phone)) {
+        header("Location: ../index.php?show=register&error=" . urlencode("Phone number must be exactly 11 digits"));
         exit();
     }
     

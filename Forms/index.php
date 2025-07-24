@@ -32,6 +32,7 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="../Index/Assets/HIRESWIFT.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply to <?php echo htmlspecialchars($companyName); ?> - HireSwift</title>

@@ -32,6 +32,14 @@ if (isset($parts[0]) && $parts[0] !== '') {
 if (isset($parts[1]) && $parts[1] !== '') {
     $initials .= strtoupper($parts[1][0]);
 }
+
+// Generate forms link
+$formsLink = '';
+if (!empty($currentCompany)) {
+    // Convert company name to lowercase and URL-encode it
+    $urlCompany = urlencode(strtolower($currentCompany));
+    $formsLink = "http://localhost:8080/hireswift_/Forms/?link=" . $urlCompany;
+}
 ?>
 
 <link rel="stylesheet" href="CSS/personal-settings.css">
@@ -41,6 +49,31 @@ if (isset($parts[1]) && $parts[1] !== '') {
         <h1 style="color: #212529; margin-bottom: 8px;">Personal Settings</h1>
         <p style="color: #6c757d; margin-bottom: 32px;">Manage your account information and preferences</p>
     </div>
+
+    <!-- Forms Link Section -->
+    <?php if (!empty($currentCompany)): ?>
+    <div class="settings-card">
+        <h3 class="section-title">Application Forms Link</h3>
+        <p style="color: #6c757d; margin-bottom: 16px;">Share this link with job applicants to allow them to apply for positions at your company.</p>
+        
+        <div class="forms-link-container">
+            <div class="form-group">
+                <label class="form-label" for="formsLink">Forms URL</label>
+                <div class="link-input-wrapper">
+                    <input type="text" class="form-control" id="formsLink" value="<?php echo htmlspecialchars($formsLink); ?>" readonly>
+                    <button type="button" class="btn btn-copy" id="copyLinkBtn" onclick="copyFormsLink()">
+                        <i class="fas fa-copy"></i>
+                        <span class="copy-text">Copy Link</span>
+                    </button>
+                </div>
+            </div>
+            <div class="link-info">
+                <i class="fas fa-info-circle"></i>
+                <span>Job seekers can use this link to submit applications directly to <strong><?php echo htmlspecialchars($currentCompany); ?></strong></span>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
 
     <!-- Profile Information -->
     <div class="settings-card">
@@ -98,7 +131,8 @@ if (isset($parts[1]) && $parts[1] !== '') {
                 <div class="form-group">
                     <label class="form-label" for="phone">Phone Number</label>
                     <input type="tel" class="form-control" id="phone" name="phone" 
-                           value="<?php echo htmlspecialchars($user['phone']); ?>" pattern="[0-9]{10}">
+                           value="<?php echo htmlspecialchars($user['phone']); ?>" 
+                           pattern="[0-9]{11}" placeholder="09991231234" maxlength="11">
                 </div>
 
                 <div class="form-group">

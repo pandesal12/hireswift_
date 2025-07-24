@@ -118,24 +118,6 @@ def extract_phone(text):
     match = re.search(r'\+?\d[\d\s\-()]{8,15}', text)
     return match.group(0) if match else None
 
-#V1
-# def extract_name(text):
-#     """Extract name using spaCy NLP"""
-#     try:
-#         log_execution("Attempting to extract name using spaCy...")
-#         nlp = spacy.load('en_core_web_sm')
-#         doc = nlp(text)
-#         for ent in doc.ents:
-#             if ent.label_ == "PERSON":
-#                 log_execution(f"Name extracted: {ent.text}")
-#                 return ent.text
-#         log_execution("No name found using spaCy")
-#         return None
-#     except Exception as e:
-#         log_execution(f"Error in name extraction: {e}")
-#         print(f"Error in name extraction: {e}")
-#         return None
-
 #V2
 def extract_name(text):
     client = genai.Client()
@@ -221,37 +203,23 @@ def extract_gpa(text):
     log_execution("No GPA found")
     return 'Not Found'
 
-# def calculate_score(found_skills, job_skills):
-#     if not job_skills:
-#         return 0.0
-    
-#     matches = len(found_skills)
-#     total = len(job_skills)
-    
-#     if total == 0:
-#         return 0.0
-    
-#     score = (matches / total) * 100
-#     log_execution(f"Score calculated: {score}% ({matches}/{total} skills matched)")
-#     return round(score, 2)
-
-def calculate_score(found_skills, job_skills):
-    if not job_skills or not found_skills:
+def calculate_score(found_skill_edu, requirement):
+    if not requirement or not found_skill_edu:
         log_execution("No skills to compare. Score = 0.0")
         return 0.0
     matches = 0
     matched = []
 
-    for job_skill in job_skills:
-        job_skill_lower = job_skill.lower()
-        for found in found_skills:
+    for edu_skill in requirement:
+        edu_skill_lower = edu_skill.lower()
+        for found in found_skill_edu:
             found_lower = found.lower()
-            if job_skill_lower in found_lower or found_lower in job_skill_lower:
+            if edu_skill_lower in found_lower or found_lower in edu_skill_lower:
                 matches += 1
-                matched.append(job_skill)
+                matched.append(edu_skill)
                 break  # count each job_skill only once
 
-    total = len(job_skills)
+    total = len(requirement)
     score = (matches / total) * 100
     log_execution(f"Score calculated: {score}% ({matches}/{total} skills matched): {matched}")
     return round(score, 2)
@@ -365,14 +333,15 @@ def main():
     
     # Extract information using job-specific requirements
     found_skills = extract_skills(cleaned_text, job_skills)
-    score = calculate_score(found_skills, job_skills)
+    found_education = extract_education(cleaned_text, job_education)
+    score = calculate_score(found_skills + found_education, job_skills + job_education)
     
     parsed_resume = {
         'Name': extract_name(cleaned_text),
         'Email': extract_email(cleaned_text),
         'Phone': extract_phone(cleaned_text),
         'Skills': found_skills,
-        'Education': extract_education(cleaned_text, job_education),
+        'Education': found_education,
         'Experience': extract_experience(cleaned_text),
         'GPA': extract_gpa(cleaned_text),
         'Summary': generate_summary(cleaned_text),

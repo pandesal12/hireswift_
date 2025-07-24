@@ -275,7 +275,7 @@ if (isset($_GET['show']) && $_GET['show'] === 'register') {
                 <div class="form-group">
                     <label class="form-label" for="reg-phone">Phone Number</label>
                     <div class="input-wrapper">
-                        <input type="tel" id="reg-phone" name="phone" class="form-control" placeholder="Enter 10-digit phone number" pattern="[0-9]{10}" required>
+                        <input type="tel" id="reg-phone" name="phone" class="form-control" placeholder="Enter 11-digit phone number" pattern="[0-9]{11}" maxlength="11" required>
                         <i class="fas fa-phone input-icon"></i>
                     </div>
                 </div>
@@ -401,9 +401,9 @@ if (isset($_GET['show']) && $_GET['show'] === 'register') {
         phoneInput.addEventListener('input', function(e) {
             // Remove all non-digits
             let value = e.target.value.replace(/\D/g, '');
-            // Limit to 10 digits
-            if (value.length > 10) {
-                value = value.slice(0, 10);
+            // Limit to 11 digits
+            if (value.length > 11) {
+                value = value.slice(0, 11);
             }
             e.target.value = value;
         });

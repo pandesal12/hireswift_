@@ -26,8 +26,8 @@ if(isset($_POST['updateProfile'])){
         exit();
     }
 
-    if (!empty($phone) && !preg_match('/^[0-9]{10}$/', $phone)) {
-        header("Location: ../Content/master.php?content=personal-settings&error=" . urlencode("Phone number must be 10 digits"));
+    if (!empty($phone) && !preg_match('/^[0-9]{11}$/', $phone)) {
+        header("Location: ../Content/master.php?content=personal-settings&error=" . urlencode("Phone number must be 11 digits; ex (09952224444"));
         exit();
     }
 
