@@ -156,7 +156,7 @@ while ($row = mysqli_fetch_assoc($jobsResult)) {
             padding: 16px;
             background: white;
             border-radius: 8px;
-            border-left: 4px solid #4285f4;
+            /* border-left: 4px solid #4285f4; */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
